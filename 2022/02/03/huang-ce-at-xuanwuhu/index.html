@@ -1,0 +1,851 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="John Doe">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="John Doe">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="前言如果你坐火车去南京，到达南京站，出站即看到一大片水域，这片水域即玄武湖，湖上有几个洲子，候车期间在湖边坐会儿，很是惬意。而这片水域在大明近300年的时间里面，属于禁区，闲杂人等一律不许进入。 第一节：黄册库的诞生玄武湖当前湖面为3.78平方千米（西湖湖面为6.38平方千米），玄武湖如南京城一样，历经磨难，历史上曾经两次被抽干填平：一次是隋朝， 一次是宋朝。 隋文帝南下讨平了陈朝之后，怕前朝余孽">
+<meta property="og:type" content="article">
+<meta property="og:title" content="玄武湖上的黄册风云">
+<meta property="og:url" content="http://example.com/2022/02/03/huang-ce-at-xuanwuhu/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言如果你坐火车去南京，到达南京站，出站即看到一大片水域，这片水域即玄武湖，湖上有几个洲子，候车期间在湖边坐会儿，很是惬意。而这片水域在大明近300年的时间里面，属于禁区，闲杂人等一律不许进入。 第一节：黄册库的诞生玄武湖当前湖面为3.78平方千米（西湖湖面为6.38平方千米），玄武湖如南京城一样，历经磨难，历史上曾经两次被抽干填平：一次是隋朝， 一次是宋朝。 隋文帝南下讨平了陈朝之后，怕前朝余孽">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-02-03T03:31:15.000Z">
+<meta property="article:modified_time" content="2022-02-03T03:32:12.343Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="讲故事">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/wangxg.ico">
+    
+    <title>玄武湖上的黄册风云 · 晓光的博客</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>晓光的博客</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">晓光的博客</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">玄武湖上的黄册风云</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                玄武湖上的黄册风云
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="讲故事">讲故事</a>
+    
+</div>
+
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">9.1k</span>Reading time: <span class="post-count reading-time">30 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2022/02/03</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>如果你坐火车去南京，到达南京站，出站即看到一大片水域，这片水域即玄武湖，湖上有几个洲子，候车期间在湖边坐会儿，很是惬意。而这片水域在大明近300年的时间里面，属于禁区，闲杂人等一律不许进入。</p>
+<h1 id="第一节：黄册库的诞生"><a href="#第一节：黄册库的诞生" class="headerlink" title="第一节：黄册库的诞生"></a>第一节：黄册库的诞生</h1><p>玄武湖当前湖面为3.78平方千米（西湖湖面为6.38平方千米），玄武湖如南京城一样，历经磨难，历史上曾经两次被抽干填平：一次是隋朝， 一次是宋朝。</p>
+<p>隋文帝南下讨平了陈朝之后，怕前朝余孽死灰复燃，便将建康城的宫苑推平，让农民在上头耕种，建康这个名字，也被改回秣陵，至于玄武湖，它离宫苑太近，也未能避开这场劫难（当时的玄武湖大概是现在的三倍面积），宋朝时，王安石觉得这么大一个湖放着太浪费了，上书建议排空湖水，改为农田，后来元朝做过一些疏浚工作，一直等到朱元璋定都南京之后，他着手对玄武湖做了一次大改造，重新够资格称湖了，但是湖并没有成为观光流连之地，朱元璋随后发布命令：封湖！终明一代，后湖从未对外开放过，成为禁区。</p>
+<p>封那么大的湖干什么，存放黄册，什么是黄册，简单说就是户籍档案，田地数据、税收数据等。秦汉以后，随着社会生产力发展，每一个朝代都演化出自己独特的户籍管理体系，但万变不离其宗，无论细节如何变迁，其运作的基本逻辑，总结下来就八个字——收税有据，束民有方。</p>
+<p>大明运气不太好，接的元朝的烂摊子，用史书上的话说就是：“版籍多亡，田赋无准。”朱元璋也是大费周折，具体不表，从洪武四年开始搞户贴（记录家里面有几个人，有几亩田），直到洪武十四年，朝廷才统计出全国人口的数字（据推测，全国总人口在5500万以上）。</p>
+<p>洪武十四年朱元璋要升级户贴，推行黄册制度，黄册的基本行政单位，叫作“图”，一图之内，一共有一百户人家，每十户人家编成一甲，从中选出一户甲首来管理，一百户人家正好十个甲首，再设置一位里长，为一图最高长官，负责掌管这十个甲首，直接向县级衙门汇报，不过不算政府编制。基于里甲制度，大明的管理深入到了每一户，据此完成税收、徭役等。</p>
+<p>正式执行的全国版的黄册制度相比上面更为复杂，采取了一些其它措施来保证黄册制度的正常运行，比如一图之内有一百一十户，十个里长户再加上一百个普通户，比如无论“甲首”还是“里长”，不是由上级全权指派，也不是由基层民主选出，这两个职位的选拔方式，是轮换制。这一制度对于明朝，对于后世，乃至我们的现在产生了重大的影响。</p>
+<p>洪武十四年这第一次黄册攒造，运到京城的有五万多本！后续每十年会攒造一次，黄册数量肯定会持续增加，黄册又如此重要，怎么存是一个大问题，玄武湖被盯上了，湖面够大，湖心有五座人造岛屿，号称“五洲”，又大又独立，有水便于防火，就它了！后来到了永乐帝，大明把都城迁到了北京，本来永乐应该把后湖档案也迁过去，可是北京周边找不出像玄武湖这么天造地设的湖泊，后湖黄册库遂留在了南京。</p>
+<h1 id="第二节：黄册库的运转"><a href="#第二节：黄册库的运转" class="headerlink" title="第二节：黄册库的运转"></a>第二节：黄册库的运转</h1><p>首先，看黄册是怎么造出来的<br>从整个流程上说，黄册首先要攒造好，然后运到玄武湖，能直接入库吗，不能！有专人比对往年数据进行检查，检查出问题会让其更正，检查通过之后方可入库。</p>
+<p>黄册的重要性毋庸置疑，自然对纸张、制式、字体都会有严格的要求。比如黄册的制造材质，得统一用厚实的绵纸，不得经过粉饰或漂白，因为那样容易让纸张变脆发黄，甚至连订册，都必须用绵索来穿起，不许使用糨糊，就算万不得已要用到一点，糨糊里也得掺入花椒、明矾等原料，以避免虫蛀。有个让人感到意外的是细节是，黄册由本里一百一十户自己掏钱攒造，朝廷没这笔费用，一直到州一级，才有专门的政府预算来造册。</p>
+<p>然后，我们看一下黄册是核查的<br>首先是由谁来核查呢？朱元璋想了一圈，最适合干这个的，就是国子监，这些人是被当成官僚预备队培养的，文化水平高，又闲得紧，正好拽过来当免费劳动力。大体的核查过程是：他们从户部总册的数字往下查，层层验算，从司册至府册、州册、县册乃至里册，验算各项数据，简单说，今年的要跟历史的对得上，县州府司要能对的上。一旦查出错讹之处，监生会把问题汇总成册，做成“驳语黄册”，里面开列某府某县某里的某项数据有问题，封面改一个“驳”字，并提交户部，重新改正的黄册，经二次查验无误，才会进入黄册库内。</p>
+<p>这项工程想来是巨大的，大明前期每期攒造黄册的数量是五六万，一千两百名监生人均负责驳查五十本，也就是五千五百户的量。一天算一本，两个月即可完成，再加上查实、撰写驳语的过程，三个月可以大体完成。按理说，国子监的学生来做核查，工作又重要，玄武湖景色又好，还能了解国家的核心数据，这属于美差吧？不！这事儿没人愿意干！</p>
+<p>首先是太苦了，甚至就是生病死了都没法儿从湖上拉走。监生们白天只能蹲在一个小号里干活，晚上为了防火，还不能点蜡烛，夏天热冬天冷，蚊虫叮咬、湿瘴之气密布，而且湖禁森严，你别说病了，就是病死了，也只能暴尸岛上，等每旬开湖之日才能把尸体运走，你可能觉得生病这是小概率事件吧，不，有载说：“致疾者十常八九，幸免者百无一二”，所以去玄武湖上做核查，是实打实的苦差，而且要持续两三个月，随着时间流转，这个时间单位就要以年为计了。</p>
+<p>苦就苦吧，给钱就行啊，不！没有钱，你是学生！你们在国子监里求学，已经享受国家补贴了，国家养着你，凭什么还要钱？没钱就没钱吧，这事儿重要啊，是件值得写在简历上的事儿吧，某年某月至某年某月在玄武湖参与黄册核查，对自己的前程有能所助力吧？不！没有，这都不能算工作经历（当年朱元璋为了锻炼监生，定下规矩，要求他们在各衙门实习历事，“实历”至少要做满一年，而这核查不算“实历”）</p>
+<p>我似乎从来没有听说过这种活，苦不说，还没钱拿，还不算工作经历，而且大概率累出病来，这谁干啊？！简单说开始的时候人还愿意忍一忍，后来就是想着法儿逃了。在从洪武到永乐这段时间，皇帝对国子监很重视，很多官员从这里直接选拔，监生们有上升渠道，朝气蓬勃、前程远大，这点辛苦活，忍忍也就过去了。后来呢，迁都北京，南京国子监虽然还叫国子监，但是影响力不行了，更严重的是，在永乐之后，明代科举制度日渐成熟，成为官员来源的主要渠道，从国子监选走的官员越来越少，监生地位一落千丈。</p>
+<p>有数据为证：洪武、永乐以及后面的洪、宣两代，驳查监生基本能保持一千两百名。在此之后，监生数量一路骤减。正统七年（1442年），降到八百名。景泰二年（1451年），降至六百零八名。到了成化十一年（1475年），南京户部上书抱怨，说他们征招八百名监生查理黄册，来参加的居然只有两百余名，其他的全跑光了。具体怎么逃的就不说了，有合理合法逃的，也有偷偷逃的，千万不要低估人类逃避劳动的主观能动性，摸鱼这事儿是天生的。</p>
+<p>活越来越多，干活的越来越少，那咋办，唯一的方案或者说结果是：干的越来越慢。到了正德五年（1510年），驳查工作已经拖延到了无以复加的地步。那一年，南京户科给事中向皇上这样诉苦道：“正德七年攒造在迩，今改驳之册未完，攒造之册复至。新旧相仍，事务冗促。册本浩繁，遽难查对。”这封奏疏的意思是，上一期的黄册还没驳查完毕，眼看下一期新册就要来了，咋办？！这个让我想起了计算机的定时任务，上个任务没搞完，下个任务开始了 或者上个需求没搞完，下个需求要堆过来了，那只能延期延期再延期了。</p>
+<p>又要马儿跑，又要马儿不吃草，这大明有关部门难道都是白痴吗？！书中有句话印象深刻：读史有一个很重要的原则，就是不要轻易把古人当白痴，我们今天可以看到的历史，和当时人的视角不同，获得的信息亦不同，如果设身处地去想，就能明白，很多看似愚蠢的举动，自有其逻辑和动机。</p>
+<p>与监生不愿意去做驳查工作的相对应的是，在这一期间，大明士绅集团开始发展壮大，根据《大明律》，这些士绅可以减免税赋徭役，比起自耕农经济上天然具有优势，他们又可以通过科举等渠道，在政权里取得话语权，最终这个利益共同体在中枢则为高官，在乡里则为缙绅，以士林为纲网，以族亲为身基，形成一个能与皇帝抗衡的集团，这个共同体的天性，是利用经济和政治上的优势去兼并土地，攫取利益。</p>
+<p>是哪一两个士绅或者四五六七个特别坏吗？不能这么说，具体到个人，甚至不乏明智的官员上书要求变革，但作为一个利益集团或阶层，大多数成员都会下意识地在方方面面做有利于自身利益的举动，这些力量汇聚到一起，形成所谓的“潮流”或“时势”，谁逆了潮流，谁阻碍了时势，就会遭到反噬。</p>
+<h1 id="第三节：黄册玩不转了"><a href="#第三节：黄册玩不转了" class="headerlink" title="第三节：黄册玩不转了"></a>第三节：黄册玩不转了</h1><p>中国自古有两股力量始终在纠缠对抗：一股力量来自中央，千方百计想要搞清楚基层情况；另外一股力量则来自基层，千方百计不让中央知道实际情况。不说别人，那位“凿壁偷光”的主人公匡衡，他在朝堂上直言进谏、刚正不阿，一退休回家，就利用地方土地档案的疏漏，偷偷侵吞了四百多顷地。可见人类的天性 or 屁股是很诚实的</p>
+<p>如何通过攒造假数据来获利的，举一个最简单的一个例子：<br>有个人叫王叙，他是地主，有两百亩地，但是不是官身，又没考中举人，没法减免税赋。等到要攒造黄册了，王家赶紧找到甲首、里长，请他们设法遮掩。等到县衙把清册供单送下来，里长开始一一填写诸家情况。他故意把王家的两百亩地，分出去五十亩，分别写在五十户贫困人家名下。这五十户穷人不识字，平日里都是甲首、里长代填，就算拿清册供单给他们检查，也是睁眼瞎。只有到了交税时，这些穷人会奇怪，怎么交得比往年多一点？里长瞪着眼睛说上头官差要求的，我有什么办法？反正平均每户只多交一亩，不算太要命，没人敢深究。于是，这五十户人家就稀里糊涂地替王家扛了五十亩的税赋。</p>
+<p>这个是最简单的了，经过各方配合的神操作，各方都获利了，王叙家也坐拥大批良田，又不必有负担，财富迅速积累起来。他主动修桥梁、铺民道、立祠堂、开私塾，偶尔周济一下穷人、资助一下读书人，很快就在乡里树起权威。靠着殷实家底，王叙的儿子再不必操心农稼，专心读书，很快考中了举人进士，在朝为官。王叙家的社会地位再拔高一层，可以光明正大地免除赋税徭役了。</p>
+<p>想造假黄册数据，难度或者说成本是很高的，底层百姓无法负担成本，只有王叙这样的乡绅、豪强以及富户有能力做。有钱人越哭越富，穷人却根本没有哭诉的渠道。于是贫者愈贫，富者愈富。诚如顾炎武所言：“富户操赢以市于吏，有富之实，无富之名。贫者无资以求于吏，有贫之实，无贫之名。州、县皆然。” 这句话中的有富之实、无富之名、有贫之实，无贫之名，读罢让人唏嘘。</p>
+<p>造假能获利，不造假就不能了吗？也能！原先一本黄册需要几十两一百两，到了万历二十年，河南某当地的黄册一本竟然需要造价一千两！</p>
+<p>手段还有很多，比如：</p>
+<ul>
+<li>黄册从攒造完成到运到玄武湖，中间要经历数次转运，你完全不需要买通官员，只要事先买通解送人员，在半路开箱子直接改册！</li>
+<li>黄册有个漏洞，监生在二次驳查的时候，只会复查驳语相关的条目，其他内容不会再看，这个漏洞很快被发现而加以利用【这个像极了计算机里面的全量更新导致的更新覆盖】，这个漏洞后来被堵上了。</li>
+<li>更狠的下面的，让人叹为观止，不是说旧档难改吗？用某些特别的制作工艺，让黄册在几年之后会化为一堆粉末！嘉靖二十八年（1549年），黄册库官员上书诉苦：近年来的新造黄册，蛀蚀速度极快，尤其是南昌府的分册，经常一县黄册全数蛀蚀无存，书中载：“纸张如粉，灰末成堆，都图丁缠（产），蛀蚀腐烂，难以辨认。但经一揭，纷纷而碎。”，大白话是，拿一本书想翻一翻，便化为粉末了。</li>
+<li>甚至于，直接让黄册库房工作人员把黄册直接给干掉！</li>
+</ul>
+<p>说来奇怪，黄册这么重要的事情竟然没有专项拨款，那这黄册到底是重要还是不重要呢？为什么没有钱？这事儿得从朱元璋说起，朱元璋觉得，如果单独为黄册库编一笔预算，会导致开支总数上升，这笔负担最终会落到底层农民身上。他一拍脑袋，想到了个好主意。朱元璋是这么想的：每个衙门的经费，肯定会有结余。把七八个衙门的结余汇总起来，便可以在不增加支出的情况下养活黄册库。听起来很完美，而事实上供养黄册库的费用，被一层层挪移转嫁，最终尽数落到了江宁、上元两县头上。两县没有办法，只能含泪把负累扛下来，向基层征派。</p>
+<p>这个两县只负责黄册的费用吗？！不，别的赋税一分不少，这是额外的。（其实大明一朝的正税并不算重，真正可怕的都是这些临时加派的杂税杂役。没有节制，没有计划，名目众多。上头无论有什么开支，最终一定会传递到基层，让百姓应接不暇，筋疲力尽。明后期的张居正提出一条鞭法，目的就是为了解决这一问题）长话短说，两个县已经负担不了，黄册库本身也着急，使出浑身本事来搞钱，比如偷偷把湖产租给附近农民，自己收取田租，为什么是偷偷，因为按规定这个可行，玄武湖是禁区！</p>
+<p>黄册越来越多，核查工作越来越重，作弊手段越来越多，黄册库很难搞到钱，事情似乎运转不下去了。</p>
+<h1 id="第四节：祭出罚款大法"><a href="#第四节：祭出罚款大法" class="headerlink" title="第四节：祭出罚款大法"></a>第四节：祭出罚款大法</h1><p>正德九年，黄册库又一次面临驳查之年。他们提前做了一个估算，发现整个驳查的支出，没有两万两打不住，不禁面色大变。再不想点什么新办法，只怕黄册库就要破产了。穷则思变，终于有一个叫史鲁的刑科给事中站出来，给中央献了一条妙计。这条妙计其实只有两个字：“罚款。”每次新黄册入库，不是要监生驳查吗？从前驳查出问题，会打回原籍勒令重造，现在咱们不妨多加一条规矩：凡是驳查出了问题的黄册，当地主管部门就要被罚款，叫作“赃罚纸价”，又称“驳费”。这些罚款，都要交给南京户部转寄应天府，以后黄册库有什么开销，就从这笔钱里支取。</p>
+<p>讲老实话，我觉得这个方案特别的好，没有毛病，核查出了问题，就要罚款吗！感觉很合理啊！而事实上呢，黄册库这边需要钱，肯定是盼望罚得越多越好；另外县州府这一边呢，罚得越多，他们可以借机征敛的就越多。两者碰在一起，表面看是震慑监督，其实深层次的利益点是一致的。</p>
+<p>黄册库从正德九年开始收罚款，尝到甜头以后，就让驳查监生往死了查，要求“一字错讹，片纸瑕疵”。那段时间，被驳回原籍的黄册如雪一般飞舞。别说民间，就连各地官吏都忍不住抱怨，给这种行为起了个专有名词，叫“滥驳”，说这简直就是“以一衙门公费而骚扰遍天下”。有一项记载显示，从正德十一年（1516年）到嘉靖二十四年（1545年），后湖黄册库在这二十九年里收了超过了16万两（足足十六万八千五百四十六两九钱八分八厘七毫七丝，账目精确到了小数点后四位），平均下来，一年收入5600两。</p>
+<p>以前清水衙门黄册库搞到钱了，别人开始眼红了。于是各地官府，纷纷想方设法截留这笔解向黄册库的罚款，或者巧立名目，或者假借挪移，或者申诉说民贫不堪承受云云，甚至还有地方官府说银子我们已经送出去了，可惜中途被盗匪给劫光。这种秃鹫争食的局面一直持续到万历年间，已经从敛财的小手段变成了官场潜规则。在一份万历十年（1582年）的奏疏中，黄册库主官王蔚满腔愤怒地向朝廷举报，说江西解送每一期驳费时，“明例银六钱四，兼收除钱四，并钞价存留外，止将银六解报”，大白话是江西要求对罚款进行分账，四六分。</p>
+<p>甚至甚至，连内阁，连皇上，都盯上了黄册库这块肥肉！嘉靖二十四年，对黄册库是特别有意义的一年：<br>年初，工部尚书甘为霖要在琉璃河上修一座大桥，造价估算十万两，跑到黄册库一张嘴就要借走三万，库房里的银子只剩下56000两（五万六千一百两八钱四厘三毫四丝一忽，小数点后都称得这么精准，可见黄册库得有多不甘心），过几天，兵部又来了，借完之后此时库房所余银子只有17878两（一万七千八百七十八两二钱八分九厘三毫四丝一忽），接着户部和皇上的小太监同时来了，最后当然是皇上赢了，皇上还是仁慈的，说抽调黄册库17878两银子，就抽调17878两银子，小数点后一忽不取，给库房剩下了二钱八分九厘三毫四丝一忽，最后的最后，黄册库只剩下了三钱不到！黄册库怎么办？只能在下一次驳查时往死了罚，罚出更多，才能恢复元气供各位大佬挥霍。好在他们的苦日子并没持续多久，黄册驳查的当年，账上便恢复到了两万七千九百七十四两，可见这项政策的利润之丰。</p>
+<p>围绕着“驳费”这一政策，下有官吏肆无忌惮地舞弊征敛，上有天子诸臣贪婪地虎视眈眈，后湖本身又不甘心回到旧日穷时。诸多原因交织一处，让黄册库及其相关制度成了一部铸银机器，源源不断地为各处输送利益。至于黄册库本身该发挥的职能，反而不重要了，甚至于黄册库慢慢的想发挥也发挥不了了。弘治三年，朝廷做了一次清查，发现在库黄册七十九万两千九百本，有虫蛀浥烂以及人为损坏痕迹的，竟高达六十四万七千三百本，也就是说，八成黄册都出问题了。更讽刺的是，洪武年间和永乐年间的黄册，反而保存完好的比例最高，接下来的一代不如一代。</p>
+<p>这种情况下，有地方要来查黄册可怎么办？！发生过这么一件事情，滦州知府潘龄上书朝廷，要求滦州的历届黄册做对比，这个要求感觉很合理。但是当时的黄册库主管杨廉，坚决反对抄册，不仅反对潘龄进去抄，而且要求以后所有人都不得入湖抄册，态度极其强硬。他给的理由特别的令人哭笑不得，却又无法反驳：地方舞弊官吏之所以不敢肆意妄为，那是因为朝廷在后湖还掌握着原始资料。但如今咱们后湖的黄册库存早就一塌糊涂，一旦把潘龄和其他人放进来抄录，民间很快就会知道虚实。到时候后湖没了威慑，那些刁民便会无所畏惧，户籍和土地想怎么改就怎么改，咱们一点办法都没有。户部立刻下发文件，宣布从此各地衙门凡申请去后湖黄册库抄册的人，只许调阅里册立的单户信息，不得抄录府、州、县的全档。</p>
+<p>万历年间徽州曾经爆发过一次丝绢案，涉及几个县之间的税赋比例。他们争吵许久分不出输赢，不得不组团前往南京，申请打开后湖黄册库查阅洪武年的原始资料。这些人费尽千辛万苦，才得以入库查询，可进去一看，洪武年的黄册早就湮灭无迹，只好空手而归。</p>
+<p>这期间也不是没有人发现问题，但是事情总如下流程发展：先是管事官员上书痛陈册籍损毁严重、解送迟滞、驳查拖延，局面十分严峻，然后是朝廷下令严查，最后各地纷纷响应中央号召，回炉重造。至于何时解送，只有天晓得。</p>
+<h1 id="第五节：黄册真的要黄了"><a href="#第五节：黄册真的要黄了" class="headerlink" title="第五节：黄册真的要黄了"></a>第五节：黄册真的要黄了</h1><p>到了万历年间，曾经一度辉煌的黄册制度已是病入膏肓。地方上豪强官吏肆虐，根本收不上来册籍；就算收上来，也来不及解送；就算解送到了，内容也不合格；就算内容合格，也会因为驳查想敛财而被强行退回；就算不退回，顺利入库，几年以后不是被水泡烂就是被老鼠虫子咬完。</p>
+<p>就算一切都很幸运，侥幸逃过天灾，也没什么用，如前情所述，黄册早已无法反应基层的真实情况。黄册失灵，里甲制也会随之无效，当初朱元璋设计的十甲轮值、均摊徭役，也沦为空谈。基层百姓税赋徭役会减轻吗，不！非但不会减轻，反而会加剧失衡，权贵、豪强、乡绅和贪官污吏运用各种手段，拼命把负担转嫁给普通百姓，甚至还要从中渔利。</p>
+<p>更为可笑的是，其实地方官衙早就不把黄册当回事了，他们自己搞了一套户籍，叫作实征文册，也叫白册，里面记录了当地人口、土地的真实——相对真实——情况，以方便管理，但是从不上报。甚至皇上想要白册，竟然要不上来。</p>
+<p>在万历后期、天启和崇祯三朝，后湖黄册库一如既往，时时上疏，呼吁严查黄册弊端，朝廷也煞有介事地下文训诫。不过无论皇上还是满朝臣工，包括黄册库自己，都明白这只是刷刷存在感，并没有什么人当真。</p>
+<p>这个时候黄册其实已经黄了，略举例如下：</p>
+<ul>
+<li>黄册开始照抄！顺治十三年（1656年），户部尚书孙廷铨向顺治皇帝汇报天下户籍情况。顺治问他，是否搜集到了前明黄册户籍文件？孙廷铨苦笑着回答说，他搜罗到一些府县在崇祯十五年攒造的黄册，里面的户口和数字，居然是原样照抄洪武年的册籍，一模一样。</li>
+<li>黄册开始提前编！有趣的是，孙廷铨还找到一本黄册，上面赫然写着“崇祯二十四年”字样。这说明地方官府已经懒得每十年造一次了，索性一次把未来几期的都造完搁着，到了时间再交。</li>
+</ul>
+<h1 id="第六节：黄册最后的命运"><a href="#第六节：黄册最后的命运" class="headerlink" title="第六节：黄册最后的命运"></a>第六节：黄册最后的命运</h1><p>在崇祯缢死的这一年，后湖黄册库的规模已经达到了册库七百间，遍布于后湖诸岛之上。从洪武十四年至崇祯十五年，一共攒造了二十七期，历代累积黄册一百七十九万七千册，达到了历史巅峰。</p>
+<p>崇祯十七年五月十五日，福王朱由崧在南京即位，次年改元弘光。清兵汹汹南下，旦夕可至，弘光小朝廷手忙脚乱地开始了备战工作。</p>
+<p>他们要拿黄册做纸甲打仗！<br>位于北城墙之外的后湖黄册库，在此时已经毫无用处。有人提议，不如把那些黄册拿出来废物利用一下。于是禁绝了二百多年的后湖黄册库，终于撤去了封锁，向世人露出真容。大批士兵跳上湖中五岛，踹开库房大门。他们顾不上感叹卷帙浩繁，把那些曾经悉心晾晒的黄册一摞一摞地搬了出去，粗暴地扔上小船运走。这是一幕极具象征意味的画面。曾令大明江山永固的黄册，在风雨飘摇中被一一扯碎。漫天的纸屑飞舞于后湖之上，万亿大明子民的户籍化为甲胄和火器，以毁灭自己的方式，试图成为挽救这个王朝的最后希望。</p>
+<p>你可能以为这一把就把黄册搞没了，不！弘光朝廷太过仓促，只来得及消耗掉库存黄册的一小部分，大部分册籍还好好地搁在库房里。清军进入南京之后，第一时间控制住了黄册库。清军一时半会儿还不知道拿这地方干吗用，便暂时搁着。一直到天下安定之后，清廷才想起来还有这么一个后湖黄册库等着处理。顺治皇帝原本指望能从中拿到一些有用的档案，用来重括天下户籍，就像朱元璋当年做的那样。可清点一番之后，顺治君臣失望地发现：天启、崇祯两朝的黄册形同废纸，毫无参考价值，至于再往前的册籍数据，更是朽烂不堪用了。</p>
+<p>那似乎只能废物利用了，还有什么用呢？！卖废纸！于是卖的卖，偷得偷！当时南京城里有一位遗民文人叫方文，桐城人，他看到昔日国家重典竟沦为街头垃圾，心中沉痛，忍不住写下了一首《负版行》，其中两句：一从世变陵谷新，此图废阁空埃尘。</p>
+<h1 id="第七节：记住两个人"><a href="#第七节：记住两个人" class="headerlink" title="第七节：记住两个人"></a>第七节：记住两个人</h1><h2 id="赵官"><a href="#赵官" class="headerlink" title="赵官"></a>赵官</h2><p>玄武湖如今在梁洲上设有一栋二层小楼，里面是明代黄册库遗址文化展，里面有一尊泥塑，此人是赵官。我们今天能得以对于黄册了解这么多，得益于此人。此人四川合州人，正德六年，赵官进京赶考，名列三甲。他被分配到了南京，担任户科给事中，主管后湖黄册库。其对于黄册库管理极为上心，除了兢兢业业的管理之外，业余时间为黄册库立志，业余工作持续了两年，先后八次修改，最终在正德九年成稿，定名为《后湖志》。</p>
+<h2 id="罗振玉"><a href="#罗振玉" class="headerlink" title="罗振玉"></a>罗振玉</h2><p>康熙登基之后，筹修明史，向民间征集前明的各种资料，据当时的记载，这批资料中包括了万历至崇祯期间攒造的一千本黄册，这是黄册库硕果仅存的孑遗了。这些资料在修完明史之后，烧的烧，毁的毁，残存的被送入北京的内阁大库。转眼到了宣统元年（1909年），大清国眼看要完。这个内阁大库年久失修，收藏急需清理。但主事人不知怎么想的，觉得最没用的就是那些年代久远的档案，把它们都挑出来要统一焚毁。</p>
+<p>幸亏在学者罗振玉的坚持下，这个计划没得到执行。罗振玉亲自下场，将这些价值千金的旧档装了八千个麻袋，转移到了国子监内。</p>
+<p>世事变幻，沧海桑田，几经周折，这八千麻袋内阁档案已经严重缩水，抗战开始之后，政府迁移了一部分到南京，还有一千七百麻袋的资料留在了北京，新中国成立以后，国家档案局于1958年对这一千七百麻袋展开了清理工作，最后挑出三百麻袋具有史学价值的资料，其中有三千件明代的文牍档案，收藏于中国第一历史档案馆至今。</p>
+<h1 id="尾声"><a href="#尾声" class="headerlink" title="尾声"></a>尾声</h1><p>其一：这些年看了一些书，一直想写一点什么，在2022年总算下决心动手写博客。这是第一篇，从开始写到写完，耗费的小时数在8个小时，差不多一天的工作时间。写的过程中，体会到写东西着实不易，各行各业真是不容易，也体会到你看到的什么东西都是被裁剪过的，这种裁剪简直是一个必然，因为全貌没有人清楚，也过于复杂，只不过有些裁剪之后变形甚至变假了，有些裁剪之后还有其形。</p>
+<p>其二：说回这篇博客，最早是在几年前在微博上看到的一篇文章讲玄武湖上的这个黄册库，那篇文章讲的是黄册库如何搞钱，当时看完之后的感受是这黄册库真坏啊；2021年末看到了一本书《显微镜下的大明》，里面有一差不多一半的篇幅在讲黄册库，才得以对这个黄册有了更深入的了解，加之很多文字讲到了玄武湖，也让我想起了在南京求学的日子，那些日子是如此的美好。</p>
+<h1 id="附录"><a href="#附录" class="headerlink" title="附录"></a>附录</h1><p>附黄册是怎么造出来的？<br>1：首先造册之年，户部会提前半年备好标准黄册的格式，得到皇上批准后，分别下发地方。<br>2：其次，地方官府会按照黄册样式进行翻刻。不过他们需要攒造的不是黄册，而是“清册供单”。“清册供单”和黄册不太一样，它是一种针对单户的调查表格，用来搜集一户人丁、事产等信息，和户帖差不多。<br>3：官府会把印好的“清册供单”下发到里、坊、厢这一级，让现年里长亲自送到甲首手里，甲首再分别送到本甲的十户人家，一一填写清楚，一户一单，签上自己的名字作保，以确保真实性。工作完成之后，里长会把本里的一百一十张“清册供单”合成一册，递交给当地衙门。<br>4：当地衙门收到辖区内所有里、坊、厢的“清册供单”之后，并不忙着合册攒造，先让户房官吏并算手、书手进行磨算复核，尤其还要调阅上一期数据来比较，看是否存在问题。如果审验无误，衙门会重新排定下一期的里长、甲首和徭役排序，填成“编次格眼”，与确认的“清册供单”一起送回到相关的里。里长要把这些资料誊写成正式文稿，造出两本里册，一册黄封上缴，一册青封留底。<br>5：衙门要把这些数据汇总，单独造一个总册，里面没有每户细节，只记录各里的总数——户部特别指出要“本管正官、首领官吏，躬亲磨算”，同样一册黄封上缴，一册青封留底。<br>6：州、县衙门要把所有的里册以及总册送到府一级衙门。府衙也要单造一个分册，记录各州县总数，一并送到布政司。布政司亦要单造分册，记录各府的汇总数据，再与府册、州册、县册以及记录到每一户的原始里册一起呈递给户部。<br>7：一级一级汇总上去，户部最终拿到手里的，是几万本里册、几千本州县册、几百本府册和十几本司册。中枢决策者既可以看到任意一个地区的宏观数据，亦可以深入查到任意一户的状况。宏微两便，天下透明。与此同时，各级官府也都会层层留底，用青册来办理日常民政之需。</p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://book.douban.com/subject/30414743/">显微镜下的大明 作者: 马伯庸</a></p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="http://example.com">John Doe</a>
+            <p>Link：<a href="http://example.com/2022/02/03/huang-ce-at-xuanwuhu/">http://example.com/2022/02/03/huang-ce-at-xuanwuhu/</a>
+            <p>Publish date：<a href="http://example.com/2022/02/03/huang-ce-at-xuanwuhu/">February 3rd 2022, 11:31:15 am</a>
+            <p>Update date：<a href="http://example.com/2022/02/03/huang-ce-at-xuanwuhu/">February 3rd 2022, 11:32:12 am</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2022/01/21/%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C-2022/" title="开始写作@2022">
+                    <div class="prevTitle">开始写作@2022</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:wangxgse@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/wangxgse" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%8A%82%EF%BC%9A%E9%BB%84%E5%86%8C%E5%BA%93%E7%9A%84%E8%AF%9E%E7%94%9F"><span class="toc-number">2.</span> <span class="toc-text">第一节：黄册库的诞生</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%8A%82%EF%BC%9A%E9%BB%84%E5%86%8C%E5%BA%93%E7%9A%84%E8%BF%90%E8%BD%AC"><span class="toc-number">3.</span> <span class="toc-text">第二节：黄册库的运转</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%8A%82%EF%BC%9A%E9%BB%84%E5%86%8C%E7%8E%A9%E4%B8%8D%E8%BD%AC%E4%BA%86"><span class="toc-number">4.</span> <span class="toc-text">第三节：黄册玩不转了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E8%8A%82%EF%BC%9A%E7%A5%AD%E5%87%BA%E7%BD%9A%E6%AC%BE%E5%A4%A7%E6%B3%95"><span class="toc-number">5.</span> <span class="toc-text">第四节：祭出罚款大法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E8%8A%82%EF%BC%9A%E9%BB%84%E5%86%8C%E7%9C%9F%E7%9A%84%E8%A6%81%E9%BB%84%E4%BA%86"><span class="toc-number">6.</span> <span class="toc-text">第五节：黄册真的要黄了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E8%8A%82%EF%BC%9A%E9%BB%84%E5%86%8C%E6%9C%80%E5%90%8E%E7%9A%84%E5%91%BD%E8%BF%90"><span class="toc-number">7.</span> <span class="toc-text">第六节：黄册最后的命运</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E8%8A%82%EF%BC%9A%E8%AE%B0%E4%BD%8F%E4%B8%A4%E4%B8%AA%E4%BA%BA"><span class="toc-number">8.</span> <span class="toc-text">第七节：记住两个人</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B5%E5%AE%98"><span class="toc-number">8.1.</span> <span class="toc-text">赵官</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%97%E6%8C%AF%E7%8E%89"><span class="toc-number">8.2.</span> <span class="toc-text">罗振玉</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%BE%E5%A3%B0"><span class="toc-number">9.</span> <span class="toc-text">尾声</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%99%84%E5%BD%95"><span class="toc-number">10.</span> <span class="toc-text">附录</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">11.</span> <span class="toc-text">参考文献</span></a></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 2
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span>
+            <a class="archive-post-title" href="/2022/02/03/huang-ce-at-xuanwuhu/">玄武湖上的黄册风云</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span>
+            <a class="archive-post-title" href="/2022/01/21/%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C-2022/">开始写作@2022</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="讲故事">
+                <span class="iconfont-archer">&#xe606;</span>
+                讲故事
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "http://example.com",
+        root: siteMetaRoot,
+        author: "John Doe"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
