@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="王晓光">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="王晓光">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="前言管理这个话题太大，大到大家可以一起谈，可能谈的都不是一个东西，却并不自知。截至2022年5月，在这个领域内，我目前看也只是踩踩水的层级，但是多少也有一些自己的思考，或成功或失败的一些散点。本文结合我的经历，结合看过的书籍和文章（主要是极客的《技术管理实战36讲》），谈一点自己的思考。 管理是需要学的第一个维度：管理不是天然就会的，当然天赋异秉的同学除外，当你觉得你在管理上无法突破时，当前团队带">
+<meta property="og:type" content="article">
+<meta property="og:title" content="管理阶段性总结">
+<meta property="og:url" content="https://wangxgse.github.io/2022/05/09/my-summary-on-management/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言管理这个话题太大，大到大家可以一起谈，可能谈的都不是一个东西，却并不自知。截至2022年5月，在这个领域内，我目前看也只是踩踩水的层级，但是多少也有一些自己的思考，或成功或失败的一些散点。本文结合我的经历，结合看过的书籍和文章（主要是极客的《技术管理实战36讲》），谈一点自己的思考。 管理是需要学的第一个维度：管理不是天然就会的，当然天赋异秉的同学除外，当你觉得你在管理上无法突破时，当前团队带">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-09T03:58:49.000Z">
+<meta property="article:modified_time" content="2022-05-09T04:06:03.546Z">
+<meta property="article:author" content="王晓光">
+<meta property="article:tag" content="管理学习">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/wangxg.ico">
+    
+    <title>管理阶段性总结 · 晓光的博客</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>晓光的博客</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">晓光的博客</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">管理阶段性总结</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                管理阶段性总结
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="管理学习">管理学习</a>
+    
+</div>
+
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">6.8k</span>Reading time: <span class="post-count reading-time">22 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2022/05/09</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>管理这个话题太大，大到大家可以一起谈，可能谈的都不是一个东西，却并不自知。截至2022年5月，在这个领域内，我目前看也只是踩踩水的层级，但是多少也有一些自己的思考，或成功或失败的一些散点。本文结合我的经历，结合看过的书籍和文章（主要是极客的《技术管理实战36讲》），谈一点自己的思考。</p>
+<h1 id="管理是需要学的"><a href="#管理是需要学的" class="headerlink" title="管理是需要学的"></a>管理是需要学的</h1><p>第一个维度：管理不是天然就会的，当然天赋异秉的同学除外，当你觉得你在管理上无法突破时，当前团队带的心力不足时，想想你是不是都没有系统的学习过管理知识，没有完整的看过一本管理的书籍，你想想，管理这个事儿在大学是一门专门的学科，百年以来，有无数的管理大师管理思想的出现，有一本书即《管理百年》。总结说，面对管理，谦虚一点，这一门学科，你需要花时间学习管理的基础知识，在这个基础之上，再加以实践。</p>
+<p>第二个维度：也许你只想安心做技术，但是你逃脱不掉与人打交道，无论是对上管理，还是平级管理，还是项目的推进都需要与人打交道。而与人打交道是管理最重要的一部分，管理的各个环节本质上都是在与人打交道。</p>
+<h2 id="什么是管理"><a href="#什么是管理" class="headerlink" title="什么是管理"></a>什么是管理</h2><p>这个定义太多高人和大师给过，我自己总结是：</p>
+<blockquote>
+<p>带领一个团队，能够持续性地完成组织赋予的职责。</p>
+</blockquote>
+<p>我尝试分析这里面的几个关键词：组织、职责、团队、持续性</p>
+<p><strong>组织</strong><br>组织为什么能存在，因为它能提供价值，价值即对应我们的业务；组织拥有资源，包括金钱、人力、信息等；组织是最后的负责人，也是最大的受益者，更是最大的风险承担者。</p>
+<p><strong>职责</strong><br>职责是组织赋予的，作为管理者，你需要负责的事情、纬度、人群很多，但是这里面如果只选择一个，即组织，你需要向组织负责，在实际工作中，你的直属上级是组织的代表。认清这个，你就认清一个事情，技术是服务于业务的，技术让步于业务，技术可以补丁套补丁，业务不可以。</p>
+<p><strong>团队</strong><br>团队是你完成职责最重要的依靠，团队也依靠这些职责得以在组织中得以生存，为了完成职责，你需要一个团队，团队中的每一个人承担其责任，每份责任都有人承担，如果此时没有人能承担，那么不好意思，作为管理者你来承担，这个承担包括你亲自下场去搞，包括你对上沟通协调资源。</p>
+<p><strong>持续性</strong><br>团队文化、凝聚力、团队梯队，这些都保证了持续性。</p>
+<h2 id="认清管理的好处"><a href="#认清管理的好处" class="headerlink" title="认清管理的好处"></a>认清管理的好处</h2><p>认清管理是什么，能够让你想清楚很多问题，很多无解的问题，纠结的事宜都有了答案</p>
+<ul>
+<li>是向上负责，还是向下负责：毫无疑问，向上负责，向组织负责，向业务负责，向你的直属上级负责。</li>
+<li>个体的想法重要吗：个体（包括管理者自己）的成长、诉求、委屈，都重要，但最重要的是团队的职责。所以当你纠结管理都是杂事，自己没有成长时，当有个团队成员很辛苦努力，但是一直没有机会时，你可以去尝试改变和努力，但是这个改变和努力，必须对你的团队职责是有益的，比如不能因为所谓苦劳给给出偏向性的激励。总体说，一切的成长、诉求、空间的基础是职责的完成。</li>
+<li>组织是你的依靠：需要学会求助，手头五个人不是说只能靠这五个人，你的背后是组织，要学会依靠组织，关键时刻向组织求助。所谓，会哭的孩子有奶吃，有奶吃你才能完成你的职责。有时候，你人手严重不足，表象是需求堆成山，但是你不主动寻求帮助，没有人有义务有精力去关注，最终只会定性说你们团队没有完成职责。</li>
+<li>持续性：如果当前事情做的挺好，也不意味着后续也能做的很好，要未雨绸缪，关注一些长期性的事情：当前服务做的好不好，当前团队梯队怎么样，提前做好规划：技术规划，团队规划。</li>
+</ul>
+<h1 id="管理第一层：职责目标"><a href="#管理第一层：职责目标" class="headerlink" title="管理第一层：职责目标"></a>管理第一层：职责目标</h1><p>先区分这两个概念</p>
+<ul>
+<li>职责即你的团队是干什么的，要用一句简单的话说明白。</li>
+<li>目标是指围绕职责进行的一件件事情，一个个项目的目标。</li>
+</ul>
+<h2 id="职责的重要性"><a href="#职责的重要性" class="headerlink" title="职责的重要性"></a>职责的重要性</h2><p>先说职责，这部分听着在务虚，虽然务虚却又是非常重要的，大到一个国家，小到一个组织团队，职责这事儿的关键是要想清楚，并且贯彻它，很多事情搞不好的背后都是因为各种原因导致没有想清楚职责：有可能是没能力想清楚，有可能是想清楚了，但是执行不够坚决，或者有其它的维度超越了职责。职责在太平时期也许并不重要，在关键时刻就显现出其价值了。而在我们工作中，在生活中，99%的时期都是太平时期，影响深刻的就是那1%，这个时候，那些务虚的东西就体现出价值了。</p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>以我的一段工作为例：</p>
+<blockquote>
+<p>背景是有一个业务指标是我们团队负责的，这个业务指标经过近一年的优化，已经明显好于以前，团队成员挺高兴，后来因为一些原因这个指标被重度关注到，一度CEO也关心这个指标，直接回复邮件询问。在这个背景之下，我的做法不成熟，本质上说，自己没有承担职责。</p>
+</blockquote>
+<ol>
+<li>我觉得这个指标已经是优化了近一年的结果，你没有看到功劳，反而在质疑我们的工作。这个本质上在抱怨。</li>
+<li>这个指标已经很难优化了。这个本质上是畏难，自己在给自己找理由。</li>
+<li>指标的优化，产品和研发都投入了很大力量，跟相关产品关系也很好，在邮件等各个场合互动中，产品很积极，我想展现我更多的影响力，但是有点碍于面子，直属leader对此是不满意的。这个本质上也是抱怨。</li>
+</ol>
+<p>从职责的角度看，这个指标是你的，持续优化是你的责任，无论对方出于什么原因，对方给予关注对这个指标都是好事。你只需要做一件事情：投入精力，持续优化，而不是采取消极的态度，事情总可以再做的好一点的。</p>
+<h2 id="目标的SMART原则"><a href="#目标的SMART原则" class="headerlink" title="目标的SMART原则"></a>目标的SMART原则</h2><p>关于目标，首先要满足SMART原则（明确的、可衡量的、可达的、相关的、在一定时间内），其中有两个点值得思考：</p>
+<ul>
+<li>目标要有一定挑战：其中在可达的部分，就涉及到目标的难度和挑战性，从特别简单到特别困难这中间一个光谱，还要选择一个需要努力的且有难度的目标。</li>
+<li>基于职责思考问题：不应该基于手头的资源看能做什么，应该基于职责基于更大的目标来定确切的目标，必要的时候，要申请协调更多资源。</li>
+</ul>
+<p>36讲中有一段论述讲了大部分的工程师出身的管理者在目标设定的过程当中偏保守</p>
+<blockquote>
+<p>对于技术出身的新经理来说，想让他把目标设定得激进些，是相当困难的，因为他做工程师时练就的“要靠谱”的价值观根深蒂固。所以，为了说到做到，而且保证高质量地完成，目标往往会定得比较保守。</p>
+</blockquote>
+<h2 id="如何找到目标"><a href="#如何找到目标" class="headerlink" title="如何找到目标"></a>如何找到目标</h2><p>我们来看一个正常的团队是什么样的，一个大概流程是：业务提需求 + 研发开发上线 + 线上稳定性保障。如果开发很顺利，强度大家可接受，线上也没啥报障，这是个理想状态。理想状态很少在现实中存在，正常情况下，总是面临各种问题，只不过时间一长，接受了问题的存在，所以问题一定是存在的。</p>
+<p>怎么找到目标呢，一是着眼当前，二是养眼未来：</p>
+<ul>
+<li>着眼当前：观察一下整体的研发流程，是不是有些地方不够高效，是不是有些项目的开发成本明显高于预期，是不是需要解决一些技术债了，线上服务质量现状如何，线上故障是个什么情况。</li>
+<li>着眼未来：作为管理者一定要提前预知到未来的业务发展，未来的风险，这儿就要注意到我上面对管理的定义中强调的持续性，当前ok，不代表未来ok，未雨绸缪是王道。</li>
+</ul>
+<p>总结说，着眼于当前和未来，找到具体的目标。</p>
+<h1 id="管理第二层：团队建设"><a href="#管理第二层：团队建设" class="headerlink" title="管理第二层：团队建设"></a>管理第二层：团队建设</h1><h2 id="团队规划"><a href="#团队规划" class="headerlink" title="团队规划"></a>团队规划</h2><p>基于业务，基于团队职责和目标，看一下当前的人力，资深的高级的初级的分别是多少，资深大概可以说是专家级，高级是团队主力，初级可以说是团队未来。结合目标 + 当前的业务划分 + 团队分工：看一下每个方向未来需要多少人，每个方向需要一个负责人 + backup，是否需要backup也看情况而定，但是每个方向一定要有一个负责人，管理不需要也无法去管每一个人。</p>
+<h2 id="员工培养"><a href="#员工培养" class="headerlink" title="员工培养"></a>员工培养</h2><p>首先回答以下问题：管理者为什么要培养个体，培养到什么程度，要为培养这件事情担责吗？</p>
+<p>从个体看，个体都想成长，马斯洛的需求模型说的很明白，从管理者的角度来看，你培养的目的不是为了拿着需求模型，把你的每个员工都培养出来，你的目的还是围绕职责和目标展开，你只需要把员工培养到能完成目标即可，而且你不需要为特定个体担责，你只需要培养出关键岗位上的人即可（甚至不需要培养出，招聘进来也可以）。当我承认我不需要为培养员工担责时，我心里有些许难受，可是这是事实，而且是极正确的做法。</p>
+<p>培养对象：你做不到面面俱到，必须有选择性，成员的面试表现，其它人的评价，过往工作表现都是选择的考察点。<br>培养什么：如果公司有职级体系，一般都会对应有能力模型，如果没有，可以从网络上等找到各个方向的技能树。<br>怎么培养：主要靠实战，另外日常的交流讨论必不可少，比如公开的代码评审，技术分享等。</p>
+<h2 id="员工激励"><a href="#员工激励" class="headerlink" title="员工激励"></a>员工激励</h2><p>如何激励：激励不仅仅是涨薪升职，激励是多方面的，好的团队氛围，好的人际关系都是一种激励。</p>
+<p>丹尼尔在《驱动力 3.0》这本书中把驱动力分为三个层级</p>
+<ul>
+<li>1.0：对生存和安全的渴望</li>
+<li>2.0：寻求奖励、避免惩罚（但是，作为管理者要意识到：善用威者不轻怒，善用恩者不妄施）</li>
+<li>3.0：自驱力，强调自动性：工作内容的自由度；在工作中获得成就感，即成功的做到了一些困难的事情，让大家很认可；意义感和使命</li>
+</ul>
+<p>这里面我说一个有点虚的事情，关于工作的幸福度，在人生工作的几十年当中，你在工作上花的时间占据你的一半以上，在这一半时间里面，如果你的幸福度很低，甚至每天上班如上坟，那实在是太可惜了。</p>
+<p>什么是幸福的工作：在工作中有自己的角色，有归属感；遇到不会的有人请教，并不因为不会被会有什么负面的评价；工作时，投入度高，套用比较流行的话，进入心流；更多的事情是来源于计划性，临时性的事务较少；事情有挑战，做完有成长。</p>
+<p>如果说幸福可能太缥缈，但是工作不难受是一个底线，让大家工作的不难受，这也是一种激励，如果能感受到幸福，这个就太厉害了。我相信任何一个人对于一个有幸福感的工作是无法拒绝的，必然会投入精力和心血的。在有幸福感的工作中，员工显然是被激励的，而且这种激励是无死角的激励，成本最低也是最奢侈的激励。</p>
+<h2 id="分工协作"><a href="#分工协作" class="headerlink" title="分工协作"></a>分工协作</h2><p>首先，分工是手段，目的是为了协作，一切不利于协作的分工都不是好分工。回想起工作经历的若干次组织架构大大小小的调整，无一不是为了分工，无一不是为了更好的协作。</p>
+<p>首先，分工要明确，如果长期不明确，长时间大家来什么做什么，那么就没有所谓积极性，或者更准确说，员工积极性的成本就会很高，他需要为了积极性花费大的精力，也可以说分工不明确给大家的积极性造成了负面影响，带来了挑战。另一方面，出于某些原因，比如互备，比如让大家不要那么有边界感，有时候需要模糊边界，这个没有问题，作为管理者要清楚，边界的模糊要在可控的范围内，即出了问题有人解决。</p>
+<p>以我的一段工作为例：</p>
+<blockquote>
+<p>在我工作的经历中，有段时间采取类似scrum的方式，按需求list，每人领取工作项，这个极大的问题是：每个人所做的事情是分散的，今天搞方向A，明天搞方向B，后天再搞方向A的时候，他发现方向A已经发生了很大的改变。这种迭代方式极大的挫伤了人的积极性，研发质量也处于较低的水平。</p>
+</blockquote>
+<p>其次，分工要相对稳定，在一定时期内要稳定，但是长期会因为各种情况发生变化，这个变化一来是外面强加的，比如人员变动，业务方向变动，另外更重要的是管理者有意的，比如有了合适的人，比如想让大家一定程度上互备，都可能是引发分工的变化。</p>
+<p>分工搞好之后，如何进一步提高协作水平呢，其一是要有必要的机制，其二是提升团队凝聚力。这里说一下团队凝聚力</p>
+<ul>
+<li>共同愿景或者是目标：这里面的核心是管理者自身要相信，或者说笃信，在这个基础上，不断的找机会给大家宣贯。</li>
+<li>归属感非常重要：员工手头有事儿，自己能干好；团队关系融洽，有个重要的标志是不要让大家有独自打斗的感受；共同的价值观或者说文化。</li>
+<li>大家互相相对了解，最起码哪儿人，他大体喜欢什么，比如对方是否已婚，有无孩子，这些都是重要的。相互了解是人际关系的基础。</li>
+<li>一起打过仗，如果还是一个胜仗&amp;硬仗，就非常棒了。</li>
+</ul>
+<h2 id="人才选拔"><a href="#人才选拔" class="headerlink" title="人才选拔"></a>人才选拔</h2><p>人才的选拔和物色，是个仁者见仁，智者见智的话题。有“务实”派，认为“能者上”；有“务虚”派，认为“有德者居之”；有“现实”派，认为“能自己冒出来的才是人才”；有“理想”派，认为要“德才兼备，宁缺毋滥”。</p>
+<p>选拔的前提还是基于职责基于目标基于分工，来对某个方向选拔人才，其次在选拔培养的过程中，你并不需要过早的承诺什么，过早的承诺对双方都不利，最好的局面是随着培养，团队的其它成员已经认可这个人是某个方向的负责人。</p>
+<p>选拔的过程就是慢慢授权放手的过程：首先是对齐期待 + 事上练 + Review机制。</p>
+<h2 id="团队文化"><a href="#团队文化" class="headerlink" title="团队文化"></a>团队文化</h2><p>文化本质是一种模仿，在决定做或者不做某件事情之前，你脑子中并没有文化二字，是什么影响你的决定呢，是案例，是之前发生的事情，某个人曾经这么做过，或者自己之前曾经这么做过。所以，对于团队的文化，还是要让大家知道什么是被鼓励的，什么是不被允许的。在文化的作用下，员工做事情会更为主动，效率也会更高，因为他明确的知道什么是对的。</p>
+<p>十来个人需要文化吗？是不是太大了？</p>
+<ul>
+<li>不但需要，而且很重要。从大的层面说，文化有很多种：比如 “强执行”文化，“靠谱”文化，“极客”文化，“温暖”文化；从小的层面说，文化就是知道什么是对的，什么是被鼓励的。</li>
+</ul>
+<p>对文化来说，最重要的就是团队的管理者</p>
+<ul>
+<li>一个团队的文化价值观，主要来源于团队负责人或核心管理者。你是什么样的作风和价值观，你团队就会是什么样的，也就是说，你的团队文化和你喜欢什么样的文化关系不大，而和你是什么样的人关系很大。你想打造什么样的团队文化，核心是从你身上的优秀品质中提炼，从而把你优秀的特质放大到整个团队。若你身上没有的特质，那就不适合作为团队的文化价值观去培育。</li>
+</ul>
+<h1 id="管理第三层：高效做事"><a href="#管理第三层：高效做事" class="headerlink" title="管理第三层：高效做事"></a>管理第三层：高效做事</h1><p>什么是高效做事</p>
+<ul>
+<li>大部分事情是计划内的；</li>
+<li>效率符合预期；</li>
+<li>质量要高，不用花费时间解决线上case；</li>
+<li>被阻碍的时候，明确知道遇到了什么困难，直面并且真正的解决了它。</li>
+</ul>
+<h2 id="计划内vs计划外"><a href="#计划内vs计划外" class="headerlink" title="计划内vs计划外"></a>计划内vs计划外</h2><p>第一点，我们期望事情是计划内的，按计划来办事，大家自然就高效，疲于加班，疲于应付，这个就很低效。</p>
+<p>对于计划外的事情的插入要严格评估，对于这种事情不能看收益，要看损失，如果计划外的事情其实损失很少，比如就是慢点，或者其实就是没有损失，完全是从上到下的层层加码造成的，这种情况下要谨慎，谨慎的目的不是为了不做，是要提高计划外事情打乱计划内的门槛。</p>
+<p>另外，对于类似上线质量，线上故障，这种事情是高优先级的，如果当前团队线上问题频发，要把对线上系统的优化，系统的重构，架构的调整放到计划内来。</p>
+<h2 id="效率符合预期"><a href="#效率符合预期" class="headerlink" title="效率符合预期"></a>效率符合预期</h2><p>对于第二点，效率符合预期。什么会导致效率不符合预期：跨部门合作；涉及多个服务；技术债积累过多导致积重难返；技术方案不合适，流程机制的问题</p>
+<ul>
+<li>跨部门合作是必然的，但是数量上，影响面上要注意，有可能是分工导致的不必要的沟通合作；跨部门合作时，事情要尽早讨论，方案要尽早讨论，负责的同学要有对外合作的意识和经验。</li>
+<li>就算是部门内，涉及多个服务，涉及多个关键业务实体，都是可能会出问题的。</li>
+<li>很多不符合预期是因为技术债，像雪球一样越来越大。技术债的偿还要有计划性，可以少做，但是不能不做。</li>
+<li>技术方案：是新增feature，还是对已有feature做调整，如果是后者一定要小心加注意，对于核心模型（核心模型能做什么，不能做什么，要有边界）级别的更改的技术方案一定要多加review；有的时候，产品的PRD稿其实是把技术方案都定了下来，这种时候一定要注意。</li>
+<li>流程机制的问题。</li>
+</ul>
+<h2 id="质量要高"><a href="#质量要高" class="headerlink" title="质量要高"></a>质量要高</h2><p>质量不高</p>
+<ul>
+<li>比如上线质量不高，研发的压力是最大的，需要花时间修复，有时候还要修数据，这会占据大量的时间。</li>
+<li>比如自测联调质量不高，会把大量问题后置到联调、测试、上线阶段</li>
+</ul>
+<p>在这里面，主要说一下上线质量不高的问题，大体上有三大来源：</p>
+<ul>
+<li>需求紧，任务重，着急上线：<ul>
+<li>这种系统如果只是新增需求，对已有业务没有影响，那问题不大。</li>
+<li>如果是对于核心系统有影响的，研发同学有责任有义务有权利去拦掉。</li>
+</ul>
+</li>
+<li>系统陈旧腐朽，坑太多，线上总出预期外的case<ul>
+<li>技术债，到了不得不还的时候了。</li>
+<li>出case不是大家乐于见到的，但是也确实是一个机会，能够让各方意识到是时候做点工作了，比如系统优化、架构调整。</li>
+</ul>
+</li>
+<li>没有按上线流程来：比如上线顺序错了；提前配置没有配；上漏了，点完发布之后，只上了一台；上线后没有关注日志和监控系统。</li>
+</ul>
+<h2 id="你被什么困住了"><a href="#你被什么困住了" class="headerlink" title="你被什么困住了"></a>你被什么困住了</h2><p>对于第四点：这一点是总结完前三点之后，后来加上去的。目标一定程度上能定，也可以开始实施，但是很多时候，我们被困住了，而且长久的被困住了，等发现的时候，已经来不及，或者已经产生损失了。</p>
+<p>首先你要明白是被卡住了，还是被吓住了。</p>
+<p>如果被吓住了：唯一的选择是直面，否则你将被吞噬</p>
+<ul>
+<li>这个是最治命了，这种情况下，你会瞎忙，会像驴一样去蒙眼去转圈，甚至去投入一些无意义的工作中来消耗时间，难以真正开始去解决问题。在这种时候，一般情况下，你是能自知的，这个时候最好的是直面他，如果做不到，就停下手头的一切，告诉自己：你被吓住了，最不可接受的是，你一边被吓住了，一边被各种杂事淹没（这种淹没很可能是自已的一种逃避方式）。</li>
+</ul>
+<p>如果你被卡住了：第一要务是明确是被什么卡住了</p>
+<ul>
+<li>技术问题：如果是被技术问题卡住，听着很好解决，但是在事实上，还是有很多事情是卡在技术上，首先我们要承认，我们不能可能穷尽所有的技术，你要么让人来帮助你，要么是自己边尝试边学习边解决。最无力的想法是：我要自己，通过全面的学习，掌握了这门技术，来解决这个问题，如果这样想，事情基本上会被永远的卡住，直到合作方、上级意识到你是问题来源。当你被技术问题卡住的时候，这个时候你要清晰的意识到你要做的是解决问题，而不是学习技术。</li>
+<li>资源问题：你在解决某个问题，但是又有别的事情让你来解决，这个时候目标的价值就出来了，你需要评估哪项是重要的，对于重要的事情，要死保的事情，就要有死保的态度。</li>
+</ul>
+<p>在三板斧中，有段关于追过程的描述</p>
+<blockquote>
+<p>追过程不是对下属工作的简单监督与部署，也不是对其行动进行严厉控制的手段，而是协助下属解决在执行过程中所遇到的困难，使其一直处于工作的正常轨道上，按时保质地完成目标。如果员工在中途工作方向发生了偏离，管理者还可以通过追踪过程及时把偏离的方向拉回来。简单说，要真正的解决工作中的问题。</p>
+</blockquote>
+<h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><pre><code>人生的道路虽然漫长，但紧要处常常只有几步，特别是当人年轻的时候。这句话我一直以为是路遥说的，搜索了一下，有人说是柳青说的，无所谓了。前几天看人世间的一个视频，雷佳音有个采访说，其它演员拍戏99%都是常规操作，只有那1%，所谓高光时刻吧，高光时刻来源于日常的积累，也来源于在那个时刻自己的坚忍。
+</code></pre>
+<p>写了这篇总结之后，我想总结一下，但是想来想去，还是落脚于要事第一这个事儿上，找到要事之后，要能抗住压力去解决它。</p>
+<ul>
+<li>要事第一 &amp; 明确问题：各种大大小小的会议、问题、讨论扑面而来，你要清楚什么是最关键的，找到那个最关键的事情，最关键的问题。</li>
+<li>关键时刻要抗往：有些时候你知道哪个事情是重要的，哪个是关键的，但是你被困住了，困的非常难受，困的有力使不上，也许只是被吓住了。在突破的时候，会发现各种的掉链子，技术不熟悉，基础设施不完善，资源不够，自己的积极性也在一点点降低，不自觉的选择了逃避。这些时刻是你工作中的关键时刻，这些时刻往往是你让你很难受，焦虑，不自信，忧心忡忡，甚至生理性的出现问题，这种时候你的内心会有无数的声音去拉扯你，各种声音还都很道理，这个时候要抗住。</li>
+</ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><p><a target="_blank" rel="noopener" href="https://book.douban.com/subject/33463986/">知行：技术人的管理之路</a><br><a target="_blank" rel="noopener" href="https://book.douban.com/subject/34885494/">阿里巴巴管理三板斧</a></p>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://wangxgse.github.io">王晓光</a>
+            <p>Link：<a href="https://wangxgse.github.io/2022/05/09/my-summary-on-management/">https://wangxgse.github.io/2022/05/09/my-summary-on-management/</a>
+            <p>Publish date：<a href="https://wangxgse.github.io/2022/05/09/my-summary-on-management/">May 9th 2022, 11:58:49 am</a>
+            <p>Update date：<a href="https://wangxgse.github.io/2022/05/09/my-summary-on-management/">May 9th 2022, 12:06:03 pm</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2022/03/02/reading-notes-on-amazing-me-first-two-chapters/" title="「了不起的我」读书笔记(前两章)">
+                    <div class="prevTitle">「了不起的我」读书笔记(前两章)</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:wangxgse@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/wangxgse" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E6%98%AF%E9%9C%80%E8%A6%81%E5%AD%A6%E7%9A%84"><span class="toc-number">2.</span> <span class="toc-text">管理是需要学的</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E7%AE%A1%E7%90%86"><span class="toc-number">2.1.</span> <span class="toc-text">什么是管理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A4%E6%B8%85%E7%AE%A1%E7%90%86%E7%9A%84%E5%A5%BD%E5%A4%84"><span class="toc-number">2.2.</span> <span class="toc-text">认清管理的好处</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E7%AC%AC%E4%B8%80%E5%B1%82%EF%BC%9A%E8%81%8C%E8%B4%A3%E7%9B%AE%E6%A0%87"><span class="toc-number">3.</span> <span class="toc-text">管理第一层：职责目标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%8C%E8%B4%A3%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7"><span class="toc-number">3.1.</span> <span class="toc-text">职责的重要性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">3.2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E6%A0%87%E7%9A%84SMART%E5%8E%9F%E5%88%99"><span class="toc-number">3.3.</span> <span class="toc-text">目标的SMART原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%89%BE%E5%88%B0%E7%9B%AE%E6%A0%87"><span class="toc-number">3.4.</span> <span class="toc-text">如何找到目标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E7%AC%AC%E4%BA%8C%E5%B1%82%EF%BC%9A%E5%9B%A2%E9%98%9F%E5%BB%BA%E8%AE%BE"><span class="toc-number">4.</span> <span class="toc-text">管理第二层：团队建设</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E8%A7%84%E5%88%92"><span class="toc-number">4.1.</span> <span class="toc-text">团队规划</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%98%E5%B7%A5%E5%9F%B9%E5%85%BB"><span class="toc-number">4.2.</span> <span class="toc-text">员工培养</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%91%98%E5%B7%A5%E6%BF%80%E5%8A%B1"><span class="toc-number">4.3.</span> <span class="toc-text">员工激励</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E5%B7%A5%E5%8D%8F%E4%BD%9C"><span class="toc-number">4.4.</span> <span class="toc-text">分工协作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%BA%E6%89%8D%E9%80%89%E6%8B%94"><span class="toc-number">4.5.</span> <span class="toc-text">人才选拔</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E6%96%87%E5%8C%96"><span class="toc-number">4.6.</span> <span class="toc-text">团队文化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E7%AC%AC%E4%B8%89%E5%B1%82%EF%BC%9A%E9%AB%98%E6%95%88%E5%81%9A%E4%BA%8B"><span class="toc-number">5.</span> <span class="toc-text">管理第三层：高效做事</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E5%88%92%E5%86%85vs%E8%AE%A1%E5%88%92%E5%A4%96"><span class="toc-number">5.1.</span> <span class="toc-text">计划内vs计划外</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%88%E7%8E%87%E7%AC%A6%E5%90%88%E9%A2%84%E6%9C%9F"><span class="toc-number">5.2.</span> <span class="toc-text">效率符合预期</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%A8%E9%87%8F%E8%A6%81%E9%AB%98"><span class="toc-number">5.3.</span> <span class="toc-text">质量要高</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E8%A2%AB%E4%BB%80%E4%B9%88%E5%9B%B0%E4%BD%8F%E4%BA%86"><span class="toc-number">5.4.</span> <span class="toc-text">你被什么困住了</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%8E%E8%AE%B0"><span class="toc-number">6.</span> <span class="toc-text">后记</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">7.</span> <span class="toc-text">参考文献</span></a></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 5
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span>
+            <a class="archive-post-title" href="/2022/05/09/my-summary-on-management/">管理阶段性总结</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span>
+            <a class="archive-post-title" href="/2022/03/02/reading-notes-on-amazing-me-first-two-chapters/">「了不起的我」读书笔记(前两章)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span>
+            <a class="archive-post-title" href="/2022/02/21/tech-english-read/">两年的英文阅读</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span>
+            <a class="archive-post-title" href="/2022/02/03/huang-ce-at-xuanwuhu/">玄武湖上的黄册风云</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span>
+            <a class="archive-post-title" href="/2022/01/21/%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C-2022/">开始写作@2022</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="里程碑">
+                <span class="iconfont-archer">&#xe606;</span>
+                里程碑
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="读书笔记">
+                <span class="iconfont-archer">&#xe606;</span>
+                读书笔记
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="讲故事">
+                <span class="iconfont-archer">&#xe606;</span>
+                讲故事
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="管理学习">
+                <span class="iconfont-archer">&#xe606;</span>
+                管理学习
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://wangxgse.github.io",
+        root: siteMetaRoot,
+        author: "王晓光"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
