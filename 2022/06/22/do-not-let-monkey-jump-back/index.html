@@ -1,0 +1,969 @@
+<!DOCTYPE html>
+<html lang="en">
+    <!-- title -->
+
+
+    
+
+<!-- keywords -->
+
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="author" content="王晓光">
+    <meta name="renderer" content="webkit">
+    <meta name="copyright" content="王晓光">
+    
+        <meta name="keywords" content="hexo,hexo-theme,hexo-blog">
+    
+    <meta name="description" content="">
+    <meta name="description" content="前言最近读了一本小书，标题是《别让猴子跳回背上》，副标题是：为什么领导没时间，下属没事做。读罢感慨颇深，回忆起自己的工作经历，有种相见甚晚的感觉。 猴子是什么猴子不是问题，猴子也不是项目，更不是一项方案，它是在项目、方案与问题中要展开的下一个步骤，这就是所谓的猴子。而对每只猴子而言，总有两个参与者介入，也就是解决者与监督者。天然的，下属是解决者，管理者是监督者，而大多数时候，领导忙的没时间，下属却">
+<meta property="og:type" content="article">
+<meta property="og:title" content="别让猴子跳回背上">
+<meta property="og:url" content="https://wangxgse.github.io/2022/06/22/do-not-let-monkey-jump-back/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="前言最近读了一本小书，标题是《别让猴子跳回背上》，副标题是：为什么领导没时间，下属没事做。读罢感慨颇深，回忆起自己的工作经历，有种相见甚晚的感觉。 猴子是什么猴子不是问题，猴子也不是项目，更不是一项方案，它是在项目、方案与问题中要展开的下一个步骤，这就是所谓的猴子。而对每只猴子而言，总有两个参与者介入，也就是解决者与监督者。天然的，下属是解决者，管理者是监督者，而大多数时候，领导忙的没时间，下属却">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-06-22T10:33:36.000Z">
+<meta property="article:modified_time" content="2022-06-22T10:34:21.322Z">
+<meta property="article:author" content="王晓光">
+<meta property="article:tag" content="读书笔记">
+<meta name="twitter:card" content="summary">
+    <meta http-equiv="Cache-control" content="no-cache">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="icon" href="/assets/wangxg.ico">
+    
+    <title>别让猴子跳回背上 · 晓光的博客</title>
+    <!-- /*! loadCSS. [c]2017 Filament Group, Inc. MIT License */
+/* This file is meant as a standalone workflow for
+- testing support for link[rel=preload]
+- enabling async CSS loading in browsers that do not support rel=preload
+- applying rel preload css once loaded, whether supported or not.
+*/ -->
+<script>
+    (function (w) {
+        'use strict'
+        // rel=preload support test
+        if (!w.loadCSS) {
+            w.loadCSS = function () {}
+        }
+        // define on the loadCSS obj
+        var rp = (loadCSS.relpreload = {})
+        // rel=preload feature support test
+        // runs once and returns a function for compat purposes
+        rp.support = (function () {
+            var ret
+            try {
+                ret = w.document.createElement('link').relList.supports('preload')
+            } catch (e) {
+                ret = false
+            }
+            return function () {
+                return ret
+            }
+        })()
+
+        // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+        // then change that media back to its intended value on load
+        rp.bindMediaToggle = function (link) {
+            // remember existing media attr for ultimate state, or default to 'all'
+            var finalMedia = link.media || 'all'
+
+            function enableStylesheet() {
+                link.media = finalMedia
+            }
+
+            // bind load handlers to enable media
+            if (link.addEventListener) {
+                link.addEventListener('load', enableStylesheet)
+            } else if (link.attachEvent) {
+                link.attachEvent('onload', enableStylesheet)
+            }
+
+            // Set rel and non-applicable media type to start an async request
+            // note: timeout allows this to happen async to let rendering continue in IE
+            setTimeout(function () {
+                link.rel = 'stylesheet'
+                link.media = 'only x'
+            })
+            // also enable media after 3 seconds,
+            // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+            setTimeout(enableStylesheet, 3000)
+        }
+
+        // loop through link elements in DOM
+        rp.poly = function () {
+            // double check this to prevent external calls from running
+            if (rp.support()) {
+                return
+            }
+            var links = w.document.getElementsByTagName('link')
+            for (var i = 0; i < links.length; i++) {
+                var link = links[i]
+                // qualify links to those with rel=preload and as=style attrs
+                if (
+                    link.rel === 'preload' &&
+                    link.getAttribute('as') === 'style' &&
+                    !link.getAttribute('data-loadcss')
+                ) {
+                    // prevent rerunning on link
+                    link.setAttribute('data-loadcss', true)
+                    // bind listeners to toggle media back
+                    rp.bindMediaToggle(link)
+                }
+            }
+        }
+
+        // if unsupported, run the polyfill
+        if (!rp.support()) {
+            // run once at least
+            rp.poly()
+
+            // rerun poly on an interval until onload
+            var run = w.setInterval(rp.poly, 500)
+            if (w.addEventListener) {
+                w.addEventListener('load', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            } else if (w.attachEvent) {
+                w.attachEvent('onload', function () {
+                    rp.poly()
+                    w.clearInterval(run)
+                })
+            }
+        }
+
+        // commonjs
+        if (typeof exports !== 'undefined') {
+            exports.loadCSS = loadCSS
+        } else {
+            w.loadCSS = loadCSS
+        }
+    })(typeof global !== 'undefined' ? global : this)
+</script>
+
+    <style type="text/css">
+    @font-face {
+        font-family: 'Oswald-Regular';
+        src: url("/font/Oswald-Regular.ttf");
+    }
+
+    body {
+        margin: 0;
+    }
+
+    header,
+    footer,
+    .back-top,
+    .sidebar,
+    .container,
+    .site-intro-meta,
+    .toc-wrapper {
+        display: none;
+    }
+
+    .site-intro {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+        /* height: 50vh; */
+        overflow: hidden;
+    }
+
+    .site-intro-placeholder {
+        position: absolute;
+        z-index: -2;
+        top: 0;
+        left: 0;
+        width: calc(100% + 300px);
+        height: 100%;
+        background: repeating-linear-gradient(-45deg, #444 0, #444 80px, #333 80px, #333 160px);
+        background-position: center center;
+        transform: translate3d(-226px, 0, 0);
+        animation: gradient-move 2.5s ease-out 0s infinite;
+    }
+
+    @keyframes gradient-move {
+        0% {
+            transform: translate3d(-226px, 0, 0);
+        }
+        100% {
+            transform: translate3d(0, 0, 0);
+        }
+    }
+</style>
+
+    <link rel="preload" href="/css/style.css?v=20211217" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="/css/dark.css?v=20211217" as="style">
+    <link rel="stylesheet" href="/css/dark.css">
+    <link rel="stylesheet" href="/css/mobile.css?v=20211217" media="(max-width: 960px)">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" as="script">
+    <link rel="preload" href="/scripts/main.js?v=20211217" as="script">
+    <link rel="preload" href="/scripts/dark.js?v=20211217" as="script">
+    <link rel="preload" href="/font/Oswald-Regular.ttf" as="font" crossorigin>
+    <link rel="preload" href="https://at.alicdn.com/t/font_327081_1dta1rlogw17zaor.woff" as="font" crossorigin>
+    <!-- algolia -->
+    
+    <!-- 百度统计  -->
+    
+    <!-- 谷歌统计  -->
+    
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (typeof window.$ == undefined) {
+            console.warn('jquery load from jsdelivr failed, will load local script')
+            document.write('<script src="/lib/jquery.min.js" />')
+        }
+    </script>
+    
+        <body class="post-body">
+    
+        <!-- header -->
+        <header class="header header-mobile">
+    <!-- top read progress line -->
+    <div class="header-element">
+        <div class="read-progress"></div>
+    </div>
+    <!-- sidebar menu button -->
+    <div class="header-element">
+        
+            <div class="header-sidebar-menu">
+        
+            
+                <div style="padding-left: 1px;">&#xe775;</div>
+            
+        </div>
+    </div>
+    <!-- header actions -->
+    <div class="header-actions">
+        <!-- theme mode switch button -->
+        <span class="header-theme-btn header-element">
+            <i class="fas fa-adjust"></i>
+        </span>
+        <!-- back to home page text -->
+        <span class="home-link header-element">
+            <a href=/>晓光的博客</a>
+        </span>
+    </div>
+    <!-- toggle banner for post layout -->
+    
+        
+            <div class="banner">
+        
+            <div class="blog-title header-element">
+                <a href="/">晓光的博客</a>
+            </div>
+            <div class="post-title header-element">
+                <a href="#" class="post-name">别让猴子跳回背上</a>
+            </div>
+        </div>
+    
+</header>
+
+        <!-- fixed footer -->
+        <footer class="footer-fixed">
+    <!-- back to top button -->
+    <div class="footer-fixed-element">
+        
+            <div class="back-top back-top-hidden">
+        
+        
+            <div>&#xe639;</div>
+        
+        </div>
+    </div>
+</footer>
+
+        <!-- wrapper -->
+        <div class="wrapper">
+            <div class="site-intro" style="
+
+
+
+
+
+
+
+    height:50vh;
+
+">
+    
+    <!-- 主页  -->
+    
+        
+    <!-- 404页  -->
+            
+    <div class="site-intro-placeholder"></div>
+    <div class="site-intro-img" style="background-image: url(/intro/post-bg.jpg)"></div>
+    <div class="site-intro-meta">
+        <!-- 标题  -->
+        <h1 class="intro-title">
+            <!-- 主页  -->
+            
+                别让猴子跳回背上
+            <!-- 404 -->
+            
+        </h1>
+        <!-- 副标题 -->
+        <p class="intro-subtitle">
+            <!-- 主页副标题  -->
+            
+                
+            <!-- 404 -->
+            
+        </p>
+        <!-- 文章页 meta -->
+        
+            <div class="post-intros">
+                <!-- 文章页标签  -->
+                
+                    <div class= post-intro-tags >
+    
+    
+        <a class="post-tag" href="javascript:void(0);" data-tags="读书笔记">读书笔记</a>
+    
+</div>
+
+                
+                
+                    <div class="post-intro-read">
+                        <span>Word count: <span class="post-count word-count">6.7k</span>Reading time: <span class="post-count reading-time">22 min</span></span>
+                    </div>
+                
+                <div class="post-intro-meta">
+                    <!-- 撰写日期 -->
+                    <span class="iconfont-archer post-intro-calander">&#xe676;</span>
+                    <span class="post-intro-time">2022/06/22</span>
+                    <!-- busuanzi -->
+                    
+                        <span id="busuanzi_container_page_pv" class="busuanzi-pv">
+                            <span class="iconfont-archer post-intro-busuanzi">&#xe602;</span>
+                            <span id="busuanzi_value_page_pv"></span>
+                        </span>
+                    
+                    <!-- 文章分享 -->
+                    <span class="share-wrapper">
+                        <span class="iconfont-archer share-icon">&#xe71d;</span>
+                        <span class="share-text">Share</span>
+                        <ul class="share-list">
+                            <li class="iconfont-archer share-qr" data-type="qr">&#xe75b;
+                                <div class="share-qrcode"></div>
+                            </li>
+                            <li class="iconfont-archer" data-type="weibo">&#xe619;</li>
+                            <li class="iconfont-archer" data-type="qzone">&#xe62e;</li>
+                            <li class="iconfont-archer" data-type="twitter">&#xe634;</li>
+                            <li class="iconfont-archer" data-type="facebook">&#xe67a;</li>
+                        </ul>
+                    </span>
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+            <script>
+  // get user agent
+  function getBrowserVersions() {
+    var u = window.navigator.userAgent
+    return {
+      userAgent: u,
+      trident: u.indexOf('Trident') > -1, //IE内核
+      presto: u.indexOf('Presto') > -1, //opera内核
+      webKit: u.indexOf('AppleWebKit') > -1, //苹果、谷歌内核
+      gecko: u.indexOf('Gecko') > -1 && u.indexOf('KHTML') == -1, //火狐内核
+      mobile: !!u.match(/AppleWebKit.*Mobile.*/), //是否为移动终端
+      ios: !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/), //ios终端
+      android: u.indexOf('Android') > -1 || u.indexOf('Linux') > -1, //android终端或者uc浏览器
+      iPhone: u.indexOf('iPhone') > -1 || u.indexOf('Mac') > -1, //是否为iPhone或者安卓QQ浏览器
+      iPad: u.indexOf('iPad') > -1, //是否为iPad
+      webApp: u.indexOf('Safari') == -1, //是否为web应用程序，没有头部与底部
+      weixin: u.indexOf('MicroMessenger') == -1, //是否为微信浏览器
+      uc: u.indexOf('UCBrowser') > -1, //是否为android下的UC浏览器
+    }
+  }
+  var browser = {
+    versions: getBrowserVersions(),
+  }
+  console.log('userAgent: ' + browser.versions.userAgent)
+
+  // callback
+  function fontLoaded() {
+    console.log('font loaded')
+    if (document.getElementsByClassName('site-intro-meta')) {
+      document
+        .getElementsByClassName('intro-title')[0]
+        .classList.add('intro-fade-in')
+      document
+        .getElementsByClassName('intro-subtitle')[0]
+        .classList.add('intro-fade-in')
+      var postIntros = document.getElementsByClassName('post-intros')[0]
+      if (postIntros) {
+        postIntros.classList.add('post-fade-in')
+      }
+    }
+  }
+
+  // UC不支持跨域，所以直接显示
+  function asyncCb() {
+    if (browser.versions.uc) {
+      console.log('UCBrowser')
+      fontLoaded()
+    } else {
+      WebFont.load({
+        custom: {
+          families: ['Oswald-Regular'],
+        },
+        loading: function () {
+          // 所有字体开始加载
+          // console.log('font loading');
+        },
+        active: function () {
+          // 所有字体已渲染
+          fontLoaded()
+        },
+        inactive: function () {
+          // 字体预加载失败，无效字体或浏览器不支持加载
+          console.log('inactive: timeout')
+          fontLoaded()
+        },
+        timeout: 5000, // Set the timeout to two seconds
+      })
+    }
+  }
+
+  function asyncErr() {
+    console.warn('script load from CDN failed, will load local script')
+  }
+
+  // load webfont-loader async, and add callback function
+  function async(u, cb, err) {
+    var d = document,
+      t = 'script',
+      o = d.createElement(t),
+      s = d.getElementsByTagName(t)[0]
+    o.src = u
+    if (cb) {
+      o.addEventListener(
+        'load',
+        function (e) {
+          cb(null, e)
+        },
+        false
+      )
+    }
+    if (err) {
+      o.addEventListener(
+        'error',
+        function (e) {
+          err(null, e)
+        },
+        false
+      )
+    }
+    s.parentNode.insertBefore(o, s)
+  }
+
+  var asyncLoadWithFallBack = function (arr, success, reject) {
+    var currReject = function () {
+      reject()
+      arr.shift()
+      if (arr.length) async(arr[0], success, currReject)
+    }
+
+    async(arr[0], success, currReject)
+  }
+
+  asyncLoadWithFallBack(
+    [
+      'https://cdn.jsdelivr.net/npm/webfontloader@1.6.28/webfontloader.min.js',
+      'https://cdn.bootcss.com/webfont/1.6.28/webfontloader.js',
+      "/lib/webfontloader.min.js",
+    ],
+    asyncCb,
+    asyncErr
+  )
+</script>
+
+            <img class="loading" src="/assets/loading.svg" style="display: block; margin: 6rem auto 0 auto; width: 6rem; height: 6rem;" />
+            <div class="container container-unloaded">
+                <main class="main post-page">
+    <article class="article-entry">
+        <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>最近读了一本小书，标题是《别让猴子跳回背上》，副标题是：为什么领导没时间，下属没事做。读罢感慨颇深，回忆起自己的工作经历，有种相见甚晚的感觉。</p>
+<h1 id="猴子是什么"><a href="#猴子是什么" class="headerlink" title="猴子是什么"></a>猴子是什么</h1><p>猴子不是问题，猴子也不是项目，更不是一项方案，它是在项目、方案与问题中要展开的下一个步骤，这就是所谓的猴子。而对每只猴子而言，总有两个参与者介入，也就是解决者与监督者。天然的，下属是解决者，管理者是监督者，而大多数时候，领导忙的没时间，下属却没有事情做。</p>
+<p>书中有一个比较典型的场景：当下属向你请示的时候，如果你的回答是“我想一想，一会儿再告诉你”，那么半小时后，你会发现这个下属就站在你的门口，敲你的门问：“领导，这个问题您考虑得怎么样了？”本来这个问题是需要他解决的，你应该去检查他完成得如何，可现在变成了什么呢？现在是他来问你考虑得怎么样了，是他在检查你！于是，猴子就跳到你的身上来了。</p>
+<p>书中有一段管理者接下过多猴子带来恶性循环的描述：</p>
+<blockquote>
+<p>当你从下属身上接下责任时，会发生两件事。第一，你让员工来监督你；第二，你让他们不必做自己分内的工作。你可以稍微想一下第二点。你等着某人作决定，并将决定告诉你，给你所需的讯息，以致事情无法进展，那时，你将作何感想？你会觉得很挫败，对吧？没错，这就是下属的感受。受挫气愤的员工不会成为有效率、有想法的员工。所以，你应该考虑到他们可能会有挫败感。你也应该对所有发生在你身上的事情感到忧心。你将会成为头号瓶颈。如果你对很多的人做出很多的承诺，却不曾实现过任何一项承诺，你会心生愧疚。而这只是恶性循环的开端。你会觉得愧疚，所以，你接受更多的猴子；你的下属觉得更加挫败，你觉得更加愧疚。该如何打破这个循环？请记住，帮你的下属做事，不是你的职责所在。你职务的真正目的，在于提供动力让其他人发挥所长。</p>
+</blockquote>
+<h1 id="管理者的时间分布"><a href="#管理者的时间分布" class="headerlink" title="管理者的时间分布"></a>管理者的时间分布</h1><ol>
+<li>老板占用的时间。这是你必须第一优先级对待。一方面，老板可以立刻对于进行奖励和惩罚，另一方面，老板的需求和关切是更大的视角，对于整个业务来说是更大的优先级，如果无法有效响应老板的需求和关切的时候，也意味着你阻碍了整个业务的进展。响应老板的需求和关切，并不是拍马屁，更不是害怕老板，于情于理，都应该这样。</li>
+<li>组织占用的时间。如：例行公事，跨团队沟通，平级协调等等。这关系到周围环境对你和你团队的评价，如果不能很好的完成这一部分，就意味着你和你的团队没有嵌入组织，不是组织上顺滑的一环。</li>
+<li>自己的时间：一部分是你真正自己的时间，另一部分被下属扔过来的猴子占用。</li>
+</ol>
+<p>这三部分的时间，按优先级排序是1 &gt; 2 &gt; 3，优先级高的可以抢占优先级低的时间，反之绝对是不可以的。这其中唯一你可以抛开、应该要抛开的是下属扔过来的猴子。</p>
+<p>回首我的一段工作经历，有一段时间，因为身上承担了过多的猴子，我无法有效的响应直接主管的关切，猴子在相对长的时间内内存在延迟和饿死，导致的结果是什么呢，我处于上升的职业生涯被立刻切断，公司没有丝毫的犹豫，这个经历的教训是极其深刻的。</p>
+<h1 id="管理者埋头苦干毫无意义"><a href="#管理者埋头苦干毫无意义" class="headerlink" title="管理者埋头苦干毫无意义"></a>管理者埋头苦干毫无意义</h1><p>首先，管理者的贡献来自于他们的判断力与影响力，而非他们个人投入的时间长短与埋头苦干的程度。他们掌控时间的方式和那些非管理者对于时间管理的考虑大不相同——后者的贡献主要来自于时间与努力。当你发现你在利用你的时间与努力，没有利用你的判断力和影响力，或者说判断力和影响力不足的时候，你要警醒：你并不是一个合格的管理者，你需要去提升判断力和影响力。</p>
+<p>书中有一段描述让我读来心有戚戚：</p>
+<blockquote>
+<p>我是个认真工作、忠心耿耿、无私奉献的公司员工，在“4个管理者”对我的万能监督下卖力工作，他们经常要求我对交办的事情负责。他们擅长于分配任务和追究到底（事情进行得怎样）。处境如此，而我却看不透。想到如此惨状，随之而来的是一个失眠的夜晚。隔天早上吃完早餐后，我提着猴子笼，不发一语地走向车库。我太太感觉到我将要干什么，便紧随在后，语带哭腔地说：“威廉，这个周末又要像以前一样吗？”我两眼垂泪地说：“亲爱的，你知道我这么做，都是为了你和孩子。”就在我走向车子时，听到了小女儿问太太说：“妈妈，如果爸爸不能在这个星期之内完成工作，他们会不会把他归到后进班——就像我在学校那样？”我爬进车子，开车回到办公室。我的车子是周六早上停车场中唯一停放的一辆。我走进办公室，走进大厅走廊。回荡在无人大楼的脚步声，这时显得更加响亮。公文包在这个周末的早晨无比沉重。我尽职尽责地走进办公室，把公文包放在桌上，打开开关，研究着自己到底要做什么。</p>
+</blockquote>
+<p>从这段描述来看，管理者实在太惨了，连基本生活都无法得到保证。他要想喂养完这些猴子需要多长时间呢？四个下属每人每天抛出三个猴子，一天12个，五天是60个，每个猴子喂半个小时，需要30个小时，天啊，周末你得抽出30个小时的时间，就算砍半，你需要15个小时，你要知道，这些猴子可不是按下回车键那么简单，可能你需要思考，需要补充和调研更多的信息，而最终给出的决定可能是糟糕的，甚至是错误的。管理者不是圣人，管理者无法在短时间内，替下属做出正确的决策。</p>
+<p>100%的概率，你花费周末两天时间也无法完成，在筋疲力尽的同时，你要面对猴子的延期、下属失望的情绪、你内心的愧疚；另外，你的家人期盼和带有怨气的眼神也会让你内心不断的被撕扯，你无法在生活中、在家庭中汲取到力量；最后，因为身上的猴子占据了你几乎全部的时间，你对老板关切和需求的响应，对组织的融入就差了很多，你自己真正应该做的事情，想做的事情，更是完全没有办法展开。</p>
+<p>这个时候的埋头苦干毫无意义，毫无意义，毫无意义！你出让了你大量的私人时间、出让了跟家人相处的时光、经受着猴子不断的拥入、100%被延迟、大概率被饿死；同时你的下属们呢，他们很开心，没什么事情要做，没什么责任要担，同时他们也很挫败，没有成长，事情总是搞不定，总是被你卡着；最后，你的老板显然对你是有意见的，你对他的响应变得差劲。</p>
+<p>怎么办呢，书中的故事有一段神谕：</p>
+<blockquote>
+<p>神说：“做一些你可以掌握的事，做一些上帝让你在生活中要扮演的角色，这也是你每天早晨会起床的原因。这样，你就会有很多可以赶上进度的事情可做。”<br>受到这种评估的鼓励，我立马把车子掉头，开回家里去。在家人打发周末之前，我还来得及赶上他们。我十万火急地及时赶到，紧急刹车停在屋前，摇下车窗大喊：“嘿，亲爱的！嗨，孩子们！准备好你们需要的东西，我们要去野餐。”他们不知道我说的是哪一种野餐。那是一种很特别的“野餐”——15年来，我都没有时间去的野餐。他们困惑不解地进了车子。我们一起往郡立游乐场出发，一整天都待在那里，荡秋千、打排球、玩跷跷板，玩各种游乐设施。星期日早上，我和家人去教堂。我不记得上一次和家人去教堂是多久以前的事。那个下午，我们再度跑到游乐场，晚上，我很平静地上床睡觉。</p>
+</blockquote>
+<p>在这个时刻，管理者真正的意识到这些猴子是下属的，并且下定决心扔回给下属，虽然这个过程也是艰难的，但是方向已定，一切都是属于执行过程了。</p>
+<p>这一段文字，让我大呼过瘾。当你的生活已经被工作严重挤压，当你拼尽全力都不能保证猴子被喂养时，你至少要意识到现在的当前的策略、做法、付出是没有办法持续的，需要改变。神说的是对的：做一些你可以掌握的事，扮演你该扮演的角色。</p>
+<p>回忆起我在2019年的七八月份，我连续好几个周末都要参加一天的集体面试，每周有一天要开一整天的scrum周会，这一天的会从头讲到尾，不断的分拆story，story的assign甚至都要花费1个小时，我周周还至少有半个人力承担开发工作，每天晚上睡觉都是不安稳，上班如上坟，不说更深入的，至少这个状态，已经可以预期终局了。</p>
+<h1 id="抓住“不服从”这把武器"><a href="#抓住“不服从”这把武器" class="headerlink" title="抓住“不服从”这把武器"></a>抓住“不服从”这把武器</h1><p>书中有一段话</p>
+<blockquote>
+<p>在现代的管理文献中，“不服从”这个字眼很奇怪地在层级关系的管理中缺位了。在以工时计酬的层级中，在军队中，我们会提到“不服从”；但在管理层次上，我们应该表现得很有礼貌。我们是共事者，我们是同事，强调地位差异显得太没品位。行为理论学家不喜欢这一套。但是如果你拒绝面对现实，那么你活该接受现实的惩罚。“不服从”是管理者与被管理者（上司与下属）关系中一个相当重要的因素：没有这套规则，你就失去了一个重要的依据。</p>
+</blockquote>
+<p>这段话让我收获很大，感慨良多。你的很多困惑，不但N多人遇到过，还有人写成了书。我一直以来不太敢(我在思考这儿是用“敢”，还是用“愿”这个字眼)以管理者自居，觉得这样不好，显得没有品位。看完这个我意识到，我的这个想法这并不是说明我是多么有品位，这是因为当前的做事方式，大家的合作流程使得管理者和下属在一起做事，很多场合会淡化上下级关系，公司也会这么类似的文化，这一切会使得你这样想。但是你要清楚，上下级依旧存在，永远存在，而且应该存在。</p>
+<p>管理者天然的、必然的拥有发布命令，下属可以有异议，但是当成为了一个决定之后，下属必须执行，如果不执行，或延期执行或懈怠执行，都是不服从。如果这个得不到保证，何来上级和下属，公司何以运转？靠良心吗？</p>
+<h1 id="让猴子物归原主"><a href="#让猴子物归原主" class="headerlink" title="让猴子物归原主"></a>让猴子物归原主</h1><p>作为管理者可以协助下属，可以参与讨论提出自己的建议，但是要明确拒绝背猴子，猴子天然是下属的，如果下属想把猴子扔给管理者，下属有义务举证为什么猴子属于管理者。在书中，作者一直在举例下属用“我们”把管理者坠入陷阱，作者明确说“我们”是万万不存在的。</p>
+<p>想起我的一段工作经历，我曾经有一个Leader，从他入职开始，在分配工作，在讨论方案的时候，总是以“你们”来指带整个团队，从来没有说过“我们”，我当时对于他各种“你们”的说法，我觉得他做的不对，很冰冷、很游离、没有给大家打成一片，像一个局外人在指点，现在看来，他是对的。我们是一个团队，但是在具体的猴子面前，没有我们，只有你和我，下属是执行者，管理者是监督者。</p>
+<p>将猴子交给下属，管理者要保持关注，这里面的关键是<strong>约定时间进行检查</strong>，而不是只是提出期望。期望是美好的，如五彩的泡泡一样美好，但是很快就会破掉。<strong>下属会重视你要检查的东西，而不是你期待的每件事</strong>，就算下属和你已经共事多年，就算我和他私交甚好，那些你期待的不会来检查的猴子大多数会饿死。管理者要求下属按约定时间出现，要求他以某种形式进行工作成果报告，要求在特殊情况下加班，这是相当合理的要求。</p>
+<p>想起我的一段工作经历，有一次拉着团队的三个核心同学，在一个会议室对于当前团队情况聊了三个小时，提出了很多期望，但是没有任何下一步，满盘的期望和描绘未来，期望是没有意义的！哪怕对方是你的老朋友，人性使然，不去检查，没有检查时间，猴子被喂养完全看下属的心情了，纯粹是一个概率事件了。如果你做不到将猴子物归原主，你要小心了，你的职业生涯已经开始报警。</p>
+<p>直觉上我们都认为猴子天然属于下属，但是为什么管理者会一不小心背起很多猴子呢？这着实是一个有意思的问题，我觉得有如下几个原因：</p>
+<ul>
+<li>现在的合作方式，会淡化上下级关系，公司也以各种形式要求平等，管理者如果过分强调上下级会让人觉得没有品位，觉得很官僚。</li>
+<li>想以背猴子的方式，和下属搞好关系，让下属觉得你人很好，又厉害。</li>
+<li>不会做背猴子以外的事情，来背猴子本质上是一种逃避，逃避真正困难的，比如关键的决策。</li>
+<li>对下属没有信心，不操心和介入的话，很担心他完成不了。</li>
+<li>不太敢要求汇报时间，不太敢强推deadline，不想背负一个严苛的、资本家代言人的形象。</li>
+</ul>
+<h1 id="喂养猴子的六大规则"><a href="#喂养猴子的六大规则" class="headerlink" title="喂养猴子的六大规则"></a>喂养猴子的六大规则</h1><p>六大规则</p>
+<ul>
+<li>要么喂养它们，要么射杀它们，千万不要让它们被活活饿死。</li>
+<li>只要你找到需要喂养的猴子，你的下属就要找出时间喂食它们，但千万不要过量。</li>
+<li>按照喂食进度表上的时间和地点喂养猴子是下属的责任，主管不必再沿途追逐即将饿死的猴子，胡乱地喂食。</li>
+<li>如果有冲突发生，预定喂食猴子的时间可在任何一方的提议下，做出更改，但不被视为延误；事情毫无进展不能作为重新安排喂食时间的借口。</li>
+<li>无论何时，应尽可能面对面地喂养猴子，或者使用电话，绝对不要用信件。备忘录、电子邮件、传真和报告可以适用于喂食过程，但不能替代面对面的对话。</li>
+<li>超过好几页的备忘录、电子邮件、传真和报告应该在一页的摘要中写清楚，以便展开即时的对话。</li>
+</ul>
+<blockquote>
+<p>规则1：要么喂养它们，要么射杀它们，千万不要让它们被活活饿死。<br>规则2：只要你找到需要喂养的猴子，你的下属就要找出时间喂食它们，但千万不要过量。</p>
+</blockquote>
+<p>活活饿死是最悲剧的，这说明这个团队可以活活让任务饿死，有一个就会有两个，今天饿死一个小任务，明天就会饿死一个大任务，如果猴子没有意义，确定不做，那就明确的、公开的射杀它们，而不是活活饿死。</p>
+<p>猴子不能过量，过量对于团队的伤害是极大的。在工作中，经常会出现，产品和老板一直压需求，这种时候，作为管理者一定要抗住压力，提高被压需求的门槛，否则你就要承担猴子过量的后果：团队疲于应付，管理者无法有效的去关切和检查，真正重要的猴子会延迟、甚至会被饿死。</p>
+<blockquote>
+<p>规则3：按照喂食进度表上的时间和地点喂养猴子是下属的责任，主管不必再沿途追逐即将饿死的猴子，胡乱地喂食。</p>
+</blockquote>
+<p>简单说，不要到处找猴子，如果你想找，那么可能到处是猴子，更不能找到后主动去喂食，这非常的要命。好的做法是什么，作为管理者当然需要四处走动，巡查整个团队，将新发现的猴子进行过滤、分析、合并，以合适的方式交给该交给下属，并约定检查时间。</p>
+<p>书中有一个有意思的案例：</p>
+<blockquote>
+<blockquote>
+<p>你的下属凯斯应该在下午两点到你的办公室来喂猴子，不过他却不见踪影。这下该怎么办？<br>如果我是个业余管理者，可能会去提醒凯斯这个会议，或是让秘书去提醒他。但记得：要准时在这里出现是他的职责，如果我提醒他，便是去替他完成职责。你不可能以扛下下属责任的方式来教导员工尽责。<br>我要秘书苏打电话给我手下的每个管理者到我的办公室来。他们集合在会议桌旁，屏息等待想知道究竟是什么危机，让他们如此自我牺牲以履行义务。正鸦雀无声时，我说：“我把各位召集起来，因为我们面临一个危机。15分钟前，我喂食猴子的时间出现了有人违抗不来。现在，我可以忍受人为疏失，包括我自己与别人的疏失，但下不为例。我不会指名道姓，或是指着你们大骂。但这是一件严重的危机，我必须把你们召集起来，即使只有一个人犯错。我之所以这么做，是希望确定你们不会有人再做出这种事情。重点就在这里。”“我想解释一下你们的工作职责。我想之前我已经解释过，不过，我还要重申一遍——你们的职责是在喂食猴子时要准时出现。大家都听清楚了吗？”他们表示明白了，于是我便宣布：“散会。”</p>
+</blockquote>
+</blockquote>
+<p>按理说，下属忘记来，作为管理者友情提醒一下，似乎无可厚非，但是作者说：因为我们面对的是一桩攸关生死的大事，攸关猴子的生死。在公司里面，只有一个计划可以优先于此，那就是危及人生命安全的计划。</p>
+<blockquote>
+<p>规则4：如果有冲突发生，预定喂食猴子的时间可在任何一方的提议下，做出更改，但不被视为延误；事情毫无进展不能作为重新安排喂食时间的借口。</p>
+</blockquote>
+<p>这里的关键是事情毫无进展不能作为重新安排喂食时间的借口。就算没有进展，也要在约定的时间进行检查，你做了检查，猴子就在下属身上，大概率，他不会毫无进展。书中有一段精彩的描写：</p>
+<blockquote>
+<blockquote>
+<p>凯斯愣住了，他不知道自己被什么东西击中了。他之前从未做过无进度报告，当早晨一分一秒地过去，想到要做这种无进度报告，他便觉得恶心想吐。他现在面临两种不愉快的行动方案：一是提出无进度报告，否则就是做点事情。哪件事情会让他觉得好过些？做些事情。当然要做些事情并不让人愉快，但比起一事无成和提出无进度报告，显然做点事情要好多了。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<p>规则5：无论何时，应尽可能面对面地喂养猴子，或者使用电话，绝对不要用信件。备忘录、电子邮件、传真和报告可以适用于喂食过程，但不能替代面对面的对话。<br>规则6：超过好几页的备忘录、电子邮件、传真和报告应该在一页的摘要中写清楚，以便展开即时的对话。</p>
+</blockquote>
+<p>简单说，面对面交流是不能被替代的，N多页的文档只能是作为一个附录，必须有对应一页纸的摘要，以便于沟通。管理者没有必要自己抓耳挠腮把材料看完，要拉过来下属一起来看，多问为什么。</p>
+<h1 id="团队管理的底线"><a href="#团队管理的底线" class="headerlink" title="团队管理的底线"></a>团队管理的底线</h1><p>其一：管理者只能关切猴子，不能喂猴子<br>如果你有靠谱的下属，那很好，你也应该积极的招聘挖掘靠谱的下属。如果没有，那么事情交付给别人之后，就不要再耗费精力去担心（这一定程度来说也是属于内耗），你更不能当下属求助之后，你转而接过猴子，去解决去推动去负责，就算需要你协助，也是拉着下属一起去推动。</p>
+<p>其二：管理的决定要得到执行<br>管理者大概率不会做出什么出格的事情，在决定大家没有异议的情况之下，猴子必须得到喂养，必须按约定的时间去检查。就算这个过程你内心忐忑，两股战战，也要将决定贯彻下去。</p>
+<p>其三：生活工作要正常，不奢求处于健康的状态，但是至少是可控的状态<br>这是最最重要的，工作和生活可以有一段时间是紧张的，有压力的，甚至是失眠，但是一定是有限期的，不敢说是非常健康，至少是可控的。回首我的一段工作经历，有一段时间压力巨大，我的笔记中清晰的记得，因为压力过大，在某一天夜里，凌晨1点，我夜跑了八公里，可以想像压力有多大，上班的心情是多么的低落，效率是多么的低。当你处于这种压力极大，看不到结束希望的时候，求助外界，公开射杀猴子，重新明确猴子归属是必须要做的事情，靠你一个人的埋头苦干是无法解决问题的。</p>
+<p>这本书中的两段描述很接近我那段时间的经历：</p>
+<blockquote>
+<p>我爬进车子，开车回到办公室。我的车子是周六早上停车场中唯一停放的一辆。我走进办公室，走进大厅走廊。回荡在无人大楼的脚步声，这时显得更加响亮。公文包在这个周末的早晨无比沉重。我尽职尽责地走进办公室，把公文包放在桌上，打开开关，研究着自己到底要做什么。</p>
+</blockquote>
+<blockquote>
+<p>回到家，在丰盛的牛排大餐、四罐啤酒下肚，看完两集电视剧之后，我筋疲力尽地瘫在床上。可是却无法入睡，整晚辗转难眠，反复想着当天我丢给下属的猴子。</p>
+</blockquote>
+<h1 id="书中的金句"><a href="#书中的金句" class="headerlink" title="书中的金句"></a>书中的金句</h1><ul>
+<li>管理者的贡献来自于他们的判断力与影响力，而非他们个人投入的时间长短与埋头苦干的程度。</li>
+<li>当管理者让往上爬的猴子堆积如山时，管理不当的猴子便会危及你的职业生涯。</li>
+<li>“不服从”是管理者与被管理者（上司与下属）关系中一个相当重要的因素：没有这套规则，你就失去了一个重要的依据。</li>
+<li>任何你所鼓励的行为，都会受到强化。</li>
+<li>我必须重申一遍，要求下属出现，要求他在会议上有工作成果报告，这是相当合理的要求。</li>
+<li>下属会重视你要检查的东西，而不是你期待的每件事</li>
+<li>工作过量从来不会要你的命，挫折才会真正要人命。</li>
+<li>当你无暇喂食猴子，你的下属就没有时间处理这些猴子。</li>
+<li>毫无进展不能作为重新安排喂食时间的借口</li>
+<li>猴子是双方对话结束时的下一个步骤。猴子不是问题，猴子也不是项目，更不是一项方案，它是在项目、方案与问题中要展开的下一个步骤。这就是所谓的猴子。而对每只猴子而言，总有两个参与者介入，也就是解决者与监督者。</li>
+</ul>
+
+    </article>
+    <!-- license -->
+    
+        <div class="license-wrapper">
+            <p>Author：<a href="https://wangxgse.github.io">王晓光</a>
+            <p>Link：<a href="https://wangxgse.github.io/2022/06/22/do-not-let-monkey-jump-back/">https://wangxgse.github.io/2022/06/22/do-not-let-monkey-jump-back/</a>
+            <p>Publish date：<a href="https://wangxgse.github.io/2022/06/22/do-not-let-monkey-jump-back/">June 22nd 2022, 6:33:36 pm</a>
+            <p>Update date：<a href="https://wangxgse.github.io/2022/06/22/do-not-let-monkey-jump-back/">June 22nd 2022, 6:34:21 pm</a>
+            <p>License：本文采用<a rel="license noopener" target="_blank" href="http://creativecommons.org/licenses/by-nc/4.0/">知识共享署名-非商业性使用 4.0 国际许可协议</a>进行许可</p>
+        </div>
+    
+    <!-- paginator -->
+    <ul class="post-paginator">
+        <li class="next">
+            
+        </li>
+        <li class="previous">
+            
+                <div class="prevSlogan">Previous Post</div>
+                <a href="/2022/05/09/my-summary-on-management/" title="管理阶段性总结">
+                    <div class="prevTitle">管理阶段性总结</div>
+                </a>
+            
+        </li>
+    </ul>
+    <!-- comment -->
+    
+        <div class="post-comment">
+            <!-- 来必力 City 版安装代码 -->
+
+
+            
+
+            
+
+            
+
+            <!-- utteranc评论 -->
+
+
+            <!-- partial('_partial/comment/changyan') -->
+            <!--PC版-->
+
+
+            
+            
+
+            
+
+        </div>
+    
+    <!-- timeliness note -->
+    <!-- idea from: https://hexo.fluid-dev.com/posts/hexo-injector/#%E6%96%87%E7%AB%A0%E6%97%B6%E6%95%88%E6%80%A7%E6%8F%90%E7%A4%BA -->
+    
+    <!-- Mathjax -->
+    
+</main>
+
+                <!-- profile -->
+                
+            </div>
+            <footer class="footer footer-unloaded">
+    <!-- social  -->
+    
+        <div class="social">
+            
+    
+        
+            
+                <a href="mailto:wangxgse@gmail.com" class="iconfont-archer email" title=email ></a>
+            
+        
+    
+        
+            
+                <a href="//github.com/wangxgse" class="iconfont-archer github" target="_blank" title=github></a>
+            
+        
+    
+        
+            
+                <span class="iconfont-archer wechat" title=wechat>
+                    
+                    <img class="profile-qr" src="/assets/wechat.jpg" />
+                </span>
+            
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+        
+    
+
+
+        </div>
+    
+    <!-- powered by Hexo  -->
+    <div class="copyright">
+        <span id="hexo-power">Powered by <a href="https://hexo.io/" target="_blank">Hexo</a></span><span class="iconfont-archer power">&#xe635;</span><span id="theme-info">theme <a href="https://github.com/fi3ework/hexo-theme-archer" target="_blank">Archer</a></span>
+    </div>
+    <!-- website approve for Chinese user -->
+    
+    <!-- 不蒜子  -->
+    
+        <div class="busuanzi-container">
+            
+             
+                <span id="busuanzi_container_site_pv">PV: <span id="busuanzi_value_site_pv"></span> :)</span>
+            
+        </div>
+    	
+</footer>
+
+        </div>
+        <!-- toc -->
+        
+            <div class="toc-wrapper toc-wrapper-loding" style=
+
+
+
+
+
+
+
+    top:50vh;
+
+>
+                <div class="toc-catalog">
+                    <span class="iconfont-archer catalog-icon">&#xe613;</span><span>CATALOG</span>
+                </div>
+                <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%8C%B4%E5%AD%90%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">2.</span> <span class="toc-text">猴子是什么</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E8%80%85%E7%9A%84%E6%97%B6%E9%97%B4%E5%88%86%E5%B8%83"><span class="toc-number">3.</span> <span class="toc-text">管理者的时间分布</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%AE%A1%E7%90%86%E8%80%85%E5%9F%8B%E5%A4%B4%E8%8B%A6%E5%B9%B2%E6%AF%AB%E6%97%A0%E6%84%8F%E4%B9%89"><span class="toc-number">4.</span> <span class="toc-text">管理者埋头苦干毫无意义</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%93%E4%BD%8F%E2%80%9C%E4%B8%8D%E6%9C%8D%E4%BB%8E%E2%80%9D%E8%BF%99%E6%8A%8A%E6%AD%A6%E5%99%A8"><span class="toc-number">5.</span> <span class="toc-text">抓住“不服从”这把武器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%AE%A9%E7%8C%B4%E5%AD%90%E7%89%A9%E5%BD%92%E5%8E%9F%E4%B8%BB"><span class="toc-number">6.</span> <span class="toc-text">让猴子物归原主</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%96%82%E5%85%BB%E7%8C%B4%E5%AD%90%E7%9A%84%E5%85%AD%E5%A4%A7%E8%A7%84%E5%88%99"><span class="toc-number">7.</span> <span class="toc-text">喂养猴子的六大规则</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%A2%E9%98%9F%E7%AE%A1%E7%90%86%E7%9A%84%E5%BA%95%E7%BA%BF"><span class="toc-number">8.</span> <span class="toc-text">团队管理的底线</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B9%A6%E4%B8%AD%E7%9A%84%E9%87%91%E5%8F%A5"><span class="toc-number">9.</span> <span class="toc-text">书中的金句</span></a></li></ol>
+            </div>
+        
+        <!-- sidebar -->
+        <div class="sidebar sidebar-hide">
+    <ul class="sidebar-tabs sidebar-tabs-active-0">
+        <li class="sidebar-tab-archives"><span class="iconfont-archer">&#xe67d;</span><span class="tab-name">Archive</span></li>
+        <li class="sidebar-tab-tags"><span class="iconfont-archer">&#xe61b;</span><span class="tab-name">Tag</span></li>
+        <li class="sidebar-tab-categories"><span class="iconfont-archer">&#xe666;</span><span class="tab-name">Cate</span></li>
+    </ul>
+    <div class="sidebar-content sidebar-content-show-archive">
+        <div class="sidebar-panel-archives">
+    <!-- 在 ejs 中将 archive 按照时间排序 -->
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    
+    
+    <div class="total-and-search">
+        <div class="total-archive">
+        Total : 6
+        </div>
+        <!-- search  -->
+        
+    </div>
+    
+    <div class="post-archive">
+    
+        
+            
+            
+            <div class="archive-year"> 2022 </div>
+            <ul class="year-list">
+            
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">06/22</span>
+            <a class="archive-post-title" href="/2022/06/22/do-not-let-monkey-jump-back/">别让猴子跳回背上</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">05/09</span>
+            <a class="archive-post-title" href="/2022/05/09/my-summary-on-management/">管理阶段性总结</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">03/02</span>
+            <a class="archive-post-title" href="/2022/03/02/reading-notes-on-amazing-me-first-two-chapters/">「了不起的我」读书笔记(前两章)</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/21</span>
+            <a class="archive-post-title" href="/2022/02/21/tech-english-read/">两年的英文阅读</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">02/03</span>
+            <a class="archive-post-title" href="/2022/02/03/huang-ce-at-xuanwuhu/">玄武湖上的黄册风云</a>
+        </li>
+    
+        
+        <li class="archive-post-item">
+            <span class="archive-post-date">01/21</span>
+            <a class="archive-post-title" href="/2022/01/21/%E5%BC%80%E5%A7%8B%E5%86%99%E4%BD%9C-2022/">开始写作@2022</a>
+        </li>
+    
+    </div>
+</div>
+
+        <div class="sidebar-panel-tags">
+    <div class="sidebar-tags-name">
+        
+            <span class="sidebar-tag-name" data-tags="里程碑">
+                <span class="iconfont-archer">&#xe606;</span>
+                里程碑
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="读书笔记">
+                <span class="iconfont-archer">&#xe606;</span>
+                读书笔记
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="讲故事">
+                <span class="iconfont-archer">&#xe606;</span>
+                讲故事
+            </span>
+        
+            <span class="sidebar-tag-name" data-tags="管理学习">
+                <span class="iconfont-archer">&#xe606;</span>
+                管理学习
+            </span>
+        
+    </div>
+    <div class="iconfont-archer sidebar-tags-empty">&#xe678;</div>
+    <div class="tag-load-fail" style="display: none; color: #ccc; font-size: 0.6rem;">
+        缺失模块，请参考主题文档进行安装配置：https://github.com/fi3ework/hexo-theme-archer#%E5%AE%89%E8%A3%85%E4%B8%BB%E9%A2%98
+    </div> 
+    <div class="sidebar-tags-list"></div>
+</div>
+
+        <div class="sidebar-panel-categories">
+    <div class="sidebar-categories-name">
+    
+    </div>
+    <div class="iconfont-archer sidebar-categories-empty">&#xe678;</div>
+    <div class="sidebar-categories-list"></div>
+</div>
+
+    </div>
+</div>
+
+        <!-- site-meta -->
+        <script>
+    var siteMetaRoot = "/"
+    if (siteMetaRoot === "undefined") {
+        siteMetaRoot = '/'
+    }
+    var siteMeta = {
+        url: "https://wangxgse.github.io",
+        root: siteMetaRoot,
+        author: "王晓光"
+    }
+</script>
+
+        <!-- import experimental options here -->
+        <!-- Custom Font -->
+
+
+        <!-- main func -->
+        <script src="/scripts/main.js?v=20211217"></script>
+        <!-- dark mode -->
+        <script src="/scripts/dark.js?v=20211217"></script>
+        <!-- fancybox -->
+        <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" defer></script>
+        <!-- algolia -->
+        
+        <!-- busuanzi -->
+        
+            <script src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js" async></script>
+        
+        <!-- CNZZ -->
+        
+        <!-- async load share.js -->
+        
+            <script src="/scripts/share.js?v=20211217" async></script>
+        
+        <!-- mermaid -->
+        
+    </body>
+</html>
